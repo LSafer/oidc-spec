@@ -1,0 +1,7 @@
+[versions]
+kotlin = "1.9.20"
+
+[libraries]
+kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.4.1" }
+kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.6.4" }
+kotlin-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.4.0" }
