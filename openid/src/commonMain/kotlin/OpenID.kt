@@ -564,9 +564,128 @@ object OpenID {
     }
 
     object AMR {
-        const val PASSWORD = "pwd"
-        const val OTP = "otp"
+        // Extensions
+
+        /**
+         * Time-based one-time password
+         */
         const val TOTP = "totp"
+
+        // https://datatracker.ietf.org/doc/html/draft-ietf-oauth-amr-values-04#section-2
+
+        /**
+         * Facial recognition
+         */
+        const val FACE = "face"
+
+        /**
+         * Fingerprint biometric
+         */
+        const val FPT = "fpt"
+
+        /**
+         * Use of geolocation information
+         */
+        const val GEO = "geo"
+
+        /**
+         * Proof-of-possession (PoP) of a hardware-secured key.
+         *
+         * See Appendix C of `RFC4211` for a discussion on PoP.
+         */
+        const val HWK = "hwk"
+
+        /**
+         * Iris scan biometric
+         */
+        const val IRIS = "iris"
+
+        /**
+         * Knowledge-based authentication [NIST.800-63-2] `ISO29115`
+         */
+        const val KBA = "kba"
+
+        /**
+         * Multiple-channel authentication.  The authentication involves
+         * communication over more than one distinct communication channel.
+         * For instance, a multiple-channel authentication might involve both
+         * entering information into a workstation's browser and providing
+         * information on a telephone call to a pre-registered number.
+         */
+        const val MCA = "mca"
+
+        /**
+         * Multiple-factor authentication [NIST.800-63-2] `ISO29115`.  When
+         * this is present, specific authentication methods used may also be
+         * included.
+         */
+        const val MFA = "mfa"
+
+        /**
+         * One-time password.  One-time password specifications that this
+         * authentication method applies to include `RFC4226` and `RFC6238`.
+         */
+        const val OTP = "otp"
+
+        /**
+         * Personal Identification Number or pattern (not restricted to
+         * containing only numbers) that a user enters to unlock a key on the
+         * device.  This mechanism should have a way to deter an attacker
+         * from obtaining the PIN by trying repeated guesses.
+         */
+        const val PIN = "pin"
+
+        /**
+         * Password-based authentication
+         */
+        const val PWD = "pwd"
+
+        /**
+         * Risk-based authentication `JECM`
+         */
+        const val RBA = "rba"
+
+        /**
+         * Retina scan biometric
+         */
+        const val RETINA = "retina"
+
+        /**
+         * Smart card
+         */
+        const val SC = "sc"
+
+        /**
+         * Confirmation using SMS message to the user at a registered number
+         */
+        const val SMS = "sms"
+
+        /**
+         * Proof-of-possession (PoP) of a software-secured key.
+         *
+         * See Appendix C of `RFC4211` for a discussion on PoP.
+         */
+        const val SWK = "swk"
+
+        /**
+         * Confirmation by telephone call to the user at a registered number
+         */
+        const val TEL = "tel"
+
+        /**
+         * User presence test
+         */
+        const val USER = "user"
+
+        /**
+         * Voice biometric
+         */
+        const val VBM = "vbm"
+
+        /**
+         * Windows integrated authentication, as described in `MSDN`
+         */
+        const val WIA = "wia"
     }
 
     object SubjectType {
