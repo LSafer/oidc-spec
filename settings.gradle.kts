@@ -17,3 +17,4 @@ rootProject.name = "identity"
 include(":oauth")
 include(":openid")
 include(":jose")
+include(":serial")
