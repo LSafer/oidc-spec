@@ -163,6 +163,47 @@ object OpenID {
          */
         const val CLAIMS = "claims"
 
+        /**
+         * The members of the [CLAIMS] claim.
+         */
+        object Claims {
+            /**
+             * OPTIONAL. Requests that the listed individual Claims be returned from the UserInfo Endpoint.
+             * If present, the listed Claims are being requested to be added to any Claims that are being requested using
+             * scope values.
+             * If not present, the Claims being requested from the UserInfo Endpoint are only those requested using scope
+             * values.
+             * When the userinfo member is used, the request MUST also use a response_type value that results in an Access
+             * Token being issued to the Client for use at the UserInfo Endpoint.
+             */
+            const val USERINFO = "userinfo"
+
+            /**
+             * OPTIONAL. Requests that the listed individual Claims be returned in the ID Token.
+             * If present, the listed Claims are being requested to be added to the default Claims in the ID Token.
+             * If not present, the default ID Token Claims are requested, as per the ID Token definition in Section 2 and
+             * per the additional per-flow ID Token requirements in Sections 3.1.3.6, 3.2.2.10, 3.3.2.11, and 3.3.3.6.
+             */
+            const val ID_TOKEN = "id_token"
+
+            /**
+             * OPTIONAL. Indicates whether the Claim being requested is an Essential Claim. If the value is true, this
+             * indicates that the Claim is an Essential Claim.
+             */
+            const val ESSENTIAL = "essential"
+
+            /**
+             * OPTIONAL. Requests that the Claim be returned with a particular value.
+             */
+            const val VALUE = "value"
+
+            /**
+             * OPTIONAL. Requests that the Claim be returned with one of a set of values, with the values appearing in
+             * order of preference.
+             */
+            const val VALUES = "values"
+        }
+
         // https://openid.net/specs/openid-connect-registration-1_0.html#RegistrationResponse
 
         /**
@@ -190,48 +231,6 @@ object OpenID {
          * the date/time.
          */
         const val CLIENT_SECRET_EXPIRES_AT = "client_secret_expires_at"
-
-        // https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter
-
-        /**
-         * OPTIONAL. Indicates whether the Claim being requested is an Essential Claim. If the value is true, this
-         * indicates that the Claim is an Essential Claim.
-         */
-        const val ESSENTIAL = "essential"
-
-        /**
-         * OPTIONAL. Requests that the Claim be returned with a particular value.
-         */
-        const val VALUE = "value"
-
-        /**
-         * OPTIONAL. Requests that the Claim be returned with one of a set of values, with the values appearing in
-         * order of preference.
-         */
-        const val VALUES = "values"
-    }
-
-    object ClaimRequest {
-        // https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter
-
-        /**
-         * OPTIONAL. Requests that the listed individual Claims be returned from the UserInfo Endpoint.
-         * If present, the listed Claims are being requested to be added to any Claims that are being requested using
-         * scope values.
-         * If not present, the Claims being requested from the UserInfo Endpoint are only those requested using scope
-         * values.
-         * When the userinfo member is used, the request MUST also use a response_type value that results in an Access
-         * Token being issued to the Client for use at the UserInfo Endpoint.
-         */
-        const val USERINFO = "userinfo"
-
-        /**
-         * OPTIONAL. Requests that the listed individual Claims be returned in the ID Token.
-         * If present, the listed Claims are being requested to be added to the default Claims in the ID Token.
-         * If not present, the default ID Token Claims are requested, as per the ID Token definition in Section 2 and
-         * per the additional per-flow ID Token requirements in Sections 3.1.3.6, 3.2.2.10, 3.3.2.11, and 3.3.3.6.
-         */
-        const val ID_TOKEN = "id_token"
     }
 
     object Error {
