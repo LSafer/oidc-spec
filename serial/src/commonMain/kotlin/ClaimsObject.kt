@@ -22,9 +22,9 @@ data class IndividualClaimRequest(
 @Serializable
 data class ClaimsObject(
     @SerialName(OpenID.Param.Claims.USERINFO)
-    val userinfo: Map<String, IndividualClaimRequest?>,
+    val userinfo: Map<String, IndividualClaimRequest?> = emptyMap(),
     @SerialName(OpenID.Param.Claims.ID_TOKEN)
-    val identity: Map<String, IndividualClaimRequest?>,
+    val identity: Map<String, IndividualClaimRequest?> = emptyMap(),
 )
 
 fun String.decodeClaimsObjectOrNull(): ClaimsObject? {
