@@ -12,7 +12,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = "identity"
+rootProject.name = "oidc-spec"
 
 include(":oauth")
 include(":openid")

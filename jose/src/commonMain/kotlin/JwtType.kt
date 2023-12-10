@@ -1,4 +1,4 @@
-package net.lsafer.identity.jose
+package net.lsafer.oidc.jose
 
 object JwtType {
     const val JWT = "JWT"

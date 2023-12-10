@@ -1,8 +1,8 @@
-package net.lsafer.identity.serial
+package net.lsafer.oidc.serial
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import net.lsafer.identity.oauth.OAuth
+import net.lsafer.oidc.oauth.OAuth
 
 @Serializable
 enum class GrantType(val value: String) {

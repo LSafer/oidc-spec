@@ -1,4 +1,4 @@
-package net.lsafer.identity.openid
+package net.lsafer.oidc.openid
 
 object ClientMetadata {
     // Extensions

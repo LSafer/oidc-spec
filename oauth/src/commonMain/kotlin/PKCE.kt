@@ -1,4 +1,4 @@
-package net.lsafer.identity.oauth
+package net.lsafer.oidc.oauth
 
 /**
  * Proof Key for Code Exchange by OAuth Public Clients

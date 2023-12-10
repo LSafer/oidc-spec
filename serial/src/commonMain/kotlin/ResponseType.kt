@@ -1,9 +1,9 @@
-package net.lsafer.identity.serial
+package net.lsafer.oidc.serial
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import net.lsafer.identity.oauth.OAuth
-import net.lsafer.identity.openid.OpenID
+import net.lsafer.oidc.oauth.OAuth
+import net.lsafer.oidc.openid.OpenID
 
 @Serializable
 enum class ResponseType(val value: String) {

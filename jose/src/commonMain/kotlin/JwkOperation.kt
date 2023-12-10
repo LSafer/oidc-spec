@@ -1,4 +1,4 @@
-package net.lsafer.identity.jose
+package net.lsafer.oidc.jose
 
 object JwkOperation {
     // from https://datatracker.ietf.org/doc/html/rfc7517#section-4.3

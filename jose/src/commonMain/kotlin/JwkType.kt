@@ -1,4 +1,4 @@
-package net.lsafer.identity.jose
+package net.lsafer.oidc.jose
 
 object JwkType {
     /** from `org.jose4j.jwk.RsaJsonWebKey` */

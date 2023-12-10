@@ -1,4 +1,4 @@
-package net.lsafer.identity.openid
+package net.lsafer.oidc.openid
 
 object DiscoveryMetadata {
     // https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata

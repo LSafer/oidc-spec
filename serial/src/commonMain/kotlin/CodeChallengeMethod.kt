@@ -1,8 +1,8 @@
-package net.lsafer.identity.serial
+package net.lsafer.oidc.serial
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import net.lsafer.identity.oauth.PKCE
+import net.lsafer.oidc.oauth.PKCE
 
 /**
  * @see PKCE.CodeChallengeMethod

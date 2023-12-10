@@ -1,7 +1,7 @@
-package net.lsafer.identity.serial
+package net.lsafer.oidc.serial
 
 import kotlinx.serialization.Serializable
-import net.lsafer.identity.openid.OpenID
+import net.lsafer.oidc.openid.OpenID
 import kotlin.jvm.JvmInline
 
 @JvmInline
