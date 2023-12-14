@@ -4,14 +4,56 @@ object ClientMetadata {
     // Extensions
 
     /**
+     * **`Boolean = false`**
+     */
+    const val MULTI_TENANT = "multi_tenant"
+
+    // https://datatracker.ietf.org/doc/html/rfc7591#section-2
+
+    /**
      * **`String<scope>[] = ["openid"]`** [OpenID.Scope]
+     *
+     * String containing a space-separated list of scope values (as
+     * described in Section 3.3 of OAuth 2.0 [`RFC6749`]) that the client
+     * can use when requesting access tokens.  The semantics of values in
+     * this list are service specific.  If omitted, an authorization
+     * server MAY register a client with a default set of scopes.
      */
     const val SCOPES = "scopes"
 
     /**
-     * **`Boolean = false`**
+     * **`String? = null`**
+     *
+     * A unique identifier string (e.g., a Universally Unique Identifier
+     * (UUID)) assigned by the client developer or software publisher
+     * used by registration endpoints to identify the client software to
+     * be dynamically registered.  Unlike "client_id", which is issued by
+     * the authorization server and SHOULD vary between instances, the
+     * "software_id" SHOULD remain the same for all instances of the
+     * client software.  The "software_id" SHOULD remain the same across
+     * multiple updates or versions of the same piece of software.  The
+     * value of this field is not intended to be human-readable and is
+     * usually opaque to the client and authorization server.
      */
-    const val MULTI_TENANT = "multi_tenant"
+    const val SOFTWARE_ID = "software_id"
+
+    /**
+     * **`String? = null`**
+     *
+     * A version identifier string for the client software identified by
+     * "software_id".  The value of the "software_version" SHOULD change
+     * on any update to the client software identified by the same
+     * "software_id".  The value of this field is intended to be compared
+     * using string equality matching and no other comparison semantics
+     * are defined by this specification.  The value of this field is
+     * outside the scope of this specification, but it is not intended to
+     * be human-readable and is usually opaque to the client and
+     * authorization server.  The definition of what constitutes an
+     * update to client software that would trigger a change to this
+     * value is specific to the software itself and is outside the scope
+     * of this specification.
+     */
+    const val SOFTWARE_VERSION = "software_version"
 
     // https://openid.net/specs/openid-connect-registration-1_0.html#ClientMetadata
 
