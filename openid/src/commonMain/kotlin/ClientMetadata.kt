@@ -19,7 +19,7 @@ object ClientMetadata {
      * this list are service specific.  If omitted, an authorization
      * server MAY register a client with a default set of scopes.
      */
-    const val SCOPES = "scopes"
+    const val SCOPE = "scope"
 
     /**
      * **`String? = null`**
