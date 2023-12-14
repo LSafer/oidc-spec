@@ -306,6 +306,17 @@ object OpenID {
          * Client's Metadata.
          */
         const val INVALID_CLIENT_METADATA = "invalid_client_metadata"
+
+        // https://openid.net/specs/openid-connect-unmet-authentication-requirements-1_0.html
+
+        /**
+         * The Authorization Server is unable to meet the requirements of the Relying Party for the authentication
+         * of the End-User. This error code SHALL be used if the Relying Party wants the OP to conform to a certain
+         * Authentication Context Class Reference value using an essential claim acr claim as specified in
+         * Section 5.5.1.1. of OpenID Connect Core [`OpenID.Core`] and the OP is unable to meet this requirement
+         * and MAY be used in other cases, if appropriate.
+         */
+        const val UNMET_AUTHENTICATION_REQUIREMENTS = "unmet_authentication_requirements"
     }
 
     object Scope {
