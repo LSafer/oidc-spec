@@ -44,6 +44,8 @@ object OAuth {
 
         const val ERROR = "error"
 
+        const val REALM = "realm"
+
         // EXTENSIONS
 
         /**
