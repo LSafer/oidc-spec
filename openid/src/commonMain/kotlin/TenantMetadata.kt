@@ -8,6 +8,11 @@ package net.lsafer.oidc.openid
  */
 object TenantMetadata {
     /**
+     * True if the Tenant has been manually verified (deserves verification badge)
+     */
+    const val VERIFIED = "verified"
+
+    /**
      * **`String<email>[]? = null`**
      *
      * OPTIONAL. Array of e-mail addresses of people responsible for this Tenant. This might be used by some providers

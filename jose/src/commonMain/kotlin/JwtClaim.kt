@@ -7,6 +7,11 @@ object JwtClaim {
     // Extensions
 
     /**
+     * True if the Subject has been manually verified (deserves verification badge)
+     */
+    const val VERIFIED = "verified"
+
+    /**
      * OPTIONAL. The id of the tenant the token is bound to.
      *
      * If omitted, the access token acts as a general access token with

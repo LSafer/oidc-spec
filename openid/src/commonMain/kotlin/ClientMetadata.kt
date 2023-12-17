@@ -4,6 +4,11 @@ object ClientMetadata {
     // Extensions
 
     /**
+     * True if the Client has been manually verified (deserves verification badge)
+     */
+    const val VERIFIED = "verified"
+
+    /**
      * **`Boolean = false`**
      */
     const val MULTI_TENANT = "multi_tenant"
