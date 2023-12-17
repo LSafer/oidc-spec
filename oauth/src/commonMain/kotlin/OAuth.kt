@@ -48,17 +48,6 @@ object OAuth {
 
         // EXTENSIONS
 
-        /**
-         * OPTIONAL. The tenant the authorization is for.
-         *
-         * Specifying this will bound resulting access tokens to a specific
-         * tenant and require the user to consent to that tenant.
-         *
-         * If omitted, the resulting access tokens won't be bound to any tenant
-         * and the user will be consented to the client only.
-         *
-         * If client is not allowed multi-tenancy. The error `unauthorized_client` will be returned.
-         */
         const val TENANT_ID = "tenant_id"
     }
 

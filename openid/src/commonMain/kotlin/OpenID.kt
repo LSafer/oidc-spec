@@ -13,6 +13,21 @@ object OpenID {
     }
 
     object Param {
+        // Extension
+
+        /**
+         * OPTIONAL. This parameter enables clients to be pass tenant information in a jwt that is
+         * optionally signed and/or encrypted.
+         */
+        const val TENANT = "tenant"
+
+        /**
+         * OPTIONAL. This parameter enables OpenID Connect tenant objects to be passed by reference, rather than by value.
+         * The tenant_uri value is a URL using the https scheme referencing a resource containing a Tenant Object
+         * value, which is a JWT containing the tenant data.
+         */
+        const val TENANT_URI = "tenant_uri"
+
         // https://www.authlete.com/developers/definitive_guide/authorization_endpoint_spec/
         // https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
 

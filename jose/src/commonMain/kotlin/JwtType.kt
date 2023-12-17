@@ -41,4 +41,9 @@ object JwtType {
      * User Info Jwt. (OpenID Userinfo Endpoint Response)
      */
     const val UI_JWT = "ui+jwt"
+
+    /**
+     * Tenant Object Jwt.
+     */
+    const val TO_JWT = "to+jwt"
 }

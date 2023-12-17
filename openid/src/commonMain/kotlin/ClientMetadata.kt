@@ -8,6 +8,40 @@ object ClientMetadata {
      */
     const val MULTI_TENANT = "multi_tenant"
 
+    /**
+     * **`String<jws_alg>? = null`**
+     *
+     * OPTIONAL. JWS [`JWS`] alg algorithm [`JWA`] that MUST be used for signing Tenant Objects sent to the OP. All Tenant
+     * Objects from this Client MUST be rejected, if not signed with this algorithm. This algorithm MUST be used both when
+     * the Tenant Object is passed by value (using the `tenant` parameter) and when it is passed by reference (using the
+     * `tenant_uri` parameter).
+     * Servers SHOULD support RS256. The value none MAY be used. The default, if omitted, is that any algorithm supported
+     * by the OP and the RP MAY be used.
+     */
+    const val TENANT_OBJECT_SIGNING_ALG = "tenant_object_signing_alg"
+
+    /**
+     * **`String<jwe_alg>? = null`**
+     *
+     * OPTIONAL. JWE [`JWE`] alg algorithm [`JWA`] the RP is declaring that it may use for encrypting Tenant Objects
+     * sent to the OP. This parameter SHOULD be included when symmetric encryption will be used, since this signals to
+     * the OP that a client_secret value needs to be returned from which the symmetric key will be derived, that might
+     * not otherwise be returned. The RP MAY still use other supported encryption algorithms or send unencrypted Tenant
+     * Objects, even when this parameter is present. If both signing and encryption are requested, the Tenant Object
+     * will be signed then encrypted, with the result being a Nested JWT, as defined in [`JWT`]. The default, if omitted,
+     * is that the RP is not declaring whether it might encrypt any Tenant Objects.
+     */
+    const val TENANT_OBJECT_ENCRYPTION_ALG = "tenant_object_encryption_alg"
+
+    /**
+     * **`String<jwe_enc> = "A128CBC-HS256"`**
+     *
+     * OPTIONAL. JWE enc algorithm [`JWA`] the RP is declaring that it may use for encrypting Tenant Objects sent to the
+     * OP. If tenant_object_encryption_alg is specified, the default for this value is A128CBC-HS256. When
+     * tenant_object_encryption_enc is included, tenant_object_encryption_alg MUST also be provided.
+     */
+    const val TENANT_OBJECT_ENCRYPTION_ENC = "tenant_object_encryption_enc"
+
     // https://datatracker.ietf.org/doc/html/rfc7591#section-2
 
     /**
@@ -75,7 +109,7 @@ object ClientMetadata {
     const val RESPONSE_TYPES = "response_types"
 
     /**
-     * **`String<grant_type>[] = ["authorization_code"]`** [OAuth.GrantType]
+     * **`String<grant_type>[] = ["authorization_code"]`**
      *
      * OPTIONAL. JSON array containing a list of the OAuth 2.0 Grant Types that the Client is declaring that it will
      * restrict itself to using. The Grant Type values used by OpenID Connect are:

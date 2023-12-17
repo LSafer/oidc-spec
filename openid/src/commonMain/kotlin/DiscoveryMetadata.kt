@@ -1,6 +1,42 @@
 package net.lsafer.oidc.openid
 
 object DiscoveryMetadata {
+    // Extension
+
+    /**
+     * OPTIONAL. Boolean value specifying whether the OP supports use of the tenant parameter, with true indicating
+     * support. If omitted, the default value is false.
+     */
+    const val TENANT_PARAMETER_SUPPORTED = "tenant_parameter_supported"
+
+    /**
+     * OPTIONAL. Boolean value specifying whether the OP supports use of the tenant_uri parameter, with true
+     * indicating support. If omitted, the default value is true.
+     */
+    const val TENANT_URI_PARAMETER_SUPPORTED = "tenant_uri_parameter_supported"
+
+    /**
+     * OPTIONAL. JSON array containing a list of the `JWS` signing algorithms (alg values) supported by the OP for
+     * Tenant Objects, which are described in Section 6.1 of OpenID Connect Core 1.0 `OpenID.Core`. These
+     * algorithms are used both when the Tenant Object is passed by value (using the tenant parameter) and when it
+     * is passed by reference (using the tenant_uri parameter). Servers SHOULD support none and RS256.
+     */
+    const val TENANT_OBJECT_SIGNING_ALG_VALUES_SUPPORTED = "tenant_object_signing_alg_values_supported"
+
+    /**
+     * OPTIONAL. JSON array containing a list of the JWE encryption algorithms (alg values) supported by the OP for
+     * Tenant Objects. These algorithms are used both when the Tenant Object is passed by value and when it is
+     * passed by reference.
+     */
+    const val TENANT_OBJECT_ENCRYPTION_ALG_VALUES_SUPPORTED = "tenant_object_encryption_alg_values_supported"
+
+    /**
+     * OPTIONAL. JSON array containing a list of the JWE encryption algorithms (enc values) supported by the OP for
+     * Tenant Objects. These algorithms are used both when the Tenant Object is passed by value and when it is
+     * passed by reference.
+     */
+    const val TENANT_OBJECT_ENCRYPTION_ENC_VALUES_SUPPORTED = "tenant_object_encryption_enc_values_supported"
+
     // https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata
 
     /**
