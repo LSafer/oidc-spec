@@ -1,30 +1,58 @@
+/*
+ *	Copyright 2023 cufy.org and meemer.com
+ *
+ *	Licensed under the Apache License, Version 2.0 (the "License");
+ *	you may not use this file except in compliance with the License.
+ *	You may obtain a copy of the License at
+ *
+ *	    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *	Unless required by applicable law or agreed to in writing, software
+ *	distributed under the License is distributed on an "AS IS" BASIS,
+ *	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *	See the License for the specific language governing permissions and
+ *	limitations under the License.
+ */
 package net.lsafer.oidc.oauth
 
 /**
- * [The OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749)
+ * OAuth Constants.
  */
 object OAuth {
+    /**
+     * Our chosen base path for oauth. (not part of openid specification)
+     */
     const val PATH = "/oauth2"
 
     /**
-     * [3. Protocol Endpoints](https://datatracker.ietf.org/doc/html/rfc6749#section-3)
+     * OAuth Endpoint Registry
      */
     object Endpoint {
+        // https://datatracker.ietf.org/doc/html/rfc6749#section-3.1
+
         /**
-         * [3.1. Authorization Endpoint](https://datatracker.ietf.org/doc/html/rfc6749#section-3.1)
+         * Our chosen path for oauth authorization endpoint.
          */
         const val AUTHORIZATION = "$PATH/authorize"
 
+        // https://datatracker.ietf.org/doc/html/rfc6749#section-3.2
+
         /**
-         * [3.2. Token Endpoint](https://datatracker.ietf.org/doc/html/rfc6749#section-3.2)
+         * Our chosen path for oauth token endpoint.
          */
         const val TOKEN = "$PATH/token"
     }
 
     /**
-     * [11.2. OAuth Parameters Registry](https://datatracker.ietf.org/doc/html/rfc6749#section-11.2)
+     * OAuth Parameters Registry.
      */
     object Param {
+        // Custom; added for convenience
+
+        const val TENANT_ID = "tenant_id"
+
+        // https://datatracker.ietf.org/doc/html/rfc6749#section-11.2.2
+
         const val CLIENT_ID = "client_id"
         const val CLIENT_SECRET = "client_secret"
         const val RESPONSE_TYPE = "response_type"
@@ -42,26 +70,86 @@ object OAuth {
         const val PASSWORD = "password"
         const val REFRESH_TOKEN = "refresh_token"
 
+        // https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1
+
         const val ERROR = "error"
 
+        // https://datatracker.ietf.org/doc/html/rfc6750#section-3
+
         const val REALM = "realm"
-
-        // EXTENSIONS
-
-        const val TENANT_ID = "tenant_id"
     }
 
+    /**
+     * OAuth Error Registry.
+     */
     object Error {
+        // https://datatracker.ietf.org/doc/html/rfc6749
+
         const val INVALID_REQUEST = "invalid_request"
         const val UNAUTHORIZED_CLIENT = "unauthorized_client"
+
+        /**
+         * The resource owner or authorization server denied the request.
+         */
         const val ACCESS_DENIED = "access_denied"
+
+        /**
+         * The authorization server does not support obtaining an
+         * authorization code or access token using this method.
+         */
         const val UNSUPPORTED_RESPONSE_TYPE = "unsupported_response_type"
+
+        /**
+         * The requested scope is invalid, unknown, malformed, or
+         * exceeds the scope granted by the resource owner.
+         */
         const val INVALID_SCOPE = "invalid_scope"
+
+        /**
+         * The authorization server encountered an unexpected
+         * condition that prevented it from fulfilling the request.
+         * (This error code is needed because a 500 Internal Server
+         * Error HTTP status code cannot be returned to the client
+         * via an HTTP redirect.)
+         */
         const val SERVER_ERROR = "server_error"
+
+        /**
+         * The authorization server is currently unable to handle
+         * the request due to a temporary overloading or maintenance
+         * of the server.  (This error code is needed because a 503
+         * Service Unavailable HTTP status code cannot be returned
+         * to the client via an HTTP redirect.)
+         */
         const val TEMPORARILY_UNAVAILABLE = "temporarily_unavailable"
 
+        /**
+         * Client authentication failed (e.g., unknown client, no
+         * client authentication included, or unsupported
+         * authentication method).  The authorization server MAY
+         * return an HTTP 401 (Unauthorized) status code to indicate
+         * which HTTP authentication schemes are supported.  If the
+         * client attempted to authenticate via the "Authorization"
+         * request header field, the authorization server MUST
+         * respond with an HTTP 401 (Unauthorized) status code and
+         * include the "WWW-Authenticate" response header field
+         * matching the authentication scheme used by the client.
+         */
         const val INVALID_CLIENT = "invalid_client"
+
+        /**
+         * The provided authorization grant (e.g., authorization
+         * code, resource owner credentials) or refresh token is
+         * invalid, expired, revoked, does not match the redirection
+         * URI used in the authorization request, or was issued to
+         * another client.
+         */
         const val INVALID_GRANT = "invalid_grant"
+
+        /**
+         * The authorization grant type is not supported by the
+         * authorization server.
+         */
         const val UNSUPPORTED_GRANT_TYPE = "unsupported_grant_type"
 
         // https://datatracker.ietf.org/doc/html/rfc6750#section-3.1
@@ -85,19 +173,22 @@ object OAuth {
         const val INSUFFICIENT_SCOPE = "insufficient_scope"
     }
 
-    //
-
+    /**
+     * OAuth values registry for parameter `response_type`
+     */
     object ResponseType {
-        // https://datatracker.ietf.org/doc/html/rfc6749#section-11.3
+        // https://datatracker.ietf.org/doc/html/rfc6749#section-11.3.2
 
-        /** [4.1. Authorization Code Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1) */
         const val CODE = "code"
-
-        /** [4.2. Implicit Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.2) */
         const val TOKEN = "token"
     }
 
+    /**
+     * OAuth values registry for parameter `grant_type`
+     */
     object GrantType {
+        // https://datatracker.ietf.org/doc/html/rfc6749
+
         const val AUTHORIZATION_CODE = "authorization_code"
         const val IMPLICIT = "implicit"
         const val CLIENT_CREDENTIALS = "client_credentials"
@@ -106,10 +197,11 @@ object OAuth {
     }
 
     /**
-     * [7.1. Access Token Types](https://datatracker.ietf.org/doc/html/rfc6749#section-7.1)
-     * [11.1. OAuth Access Token Types Registry](https://datatracker.ietf.org/doc/html/rfc6749#section-11.1)
+     * OAuth values registry for parameter `token_type`
      */
     object AccessTokenType {
+        // https://datatracker.ietf.org/doc/html/rfc6749#section-11.1
+
         const val BEARER = "bearer"
         const val MAC = "mac"
     }

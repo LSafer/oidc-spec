@@ -1,19 +1,72 @@
+/*
+ *	Copyright 2023 cufy.org and meemer.com
+ *
+ *	Licensed under the Apache License, Version 2.0 (the "License");
+ *	you may not use this file except in compliance with the License.
+ *	You may obtain a copy of the License at
+ *
+ *	    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *	Unless required by applicable law or agreed to in writing, software
+ *	distributed under the License is distributed on an "AS IS" BASIS,
+ *	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *	See the License for the specific language governing permissions and
+ *	limitations under the License.
+ */
 package net.lsafer.oidc.openid
 
+/**
+ * OpenID Constants.
+ */
 object OpenID {
+    /**
+     * Our chosen base path for openid. (not part of openid specification)
+     */
     const val PATH = "/openid"
 
+    /**
+     * OpenID Endpoint Registry
+     */
     object Endpoint {
-        const val JWKS = "/.well-known/jwks.json"
+        // https://openid.net/specs/openid-connect-core-1_0.html#UserInfo
+
+        /**
+         * Our chosen path for userinfo endpoint.
+         */
+        const val USERINFO = "$PATH/userinfo"
+
+        // https://openid.net/specs/openid-connect-discovery-1_0.html
+
+        /**
+         * The path for openid configuration.
+         */
         const val OPENID_CONFIGURATION = "/.well-known/openid-configuration"
 
-        const val USERINFO = "$PATH/userinfo"
+        /**
+         * The standard path for jwks endpoint.
+         */
+        const val JWKS = "/.well-known/jwks.json"
+
+        // https://openid.net/specs/openid-connect-registration-1_0.html#ClientRegistration
+
+        /**
+         * Our chosen path for dynamic client registration endpoint.
+         */
         const val REGISTRATION = "$PATH/registration"
+
+        // https://openid.net/specs/openid-connect-registration-1_0.html#ClientConfigurationEndpoint
+
+        /**
+         * Our chosen path for client configuration endpoint.
+         */
         const val CLIENT_CONFIGURATION = "$PATH/client-configuration"
     }
 
+    /**
+     * OpenID Parameters Registry.
+     */
     object Param {
-        // Extension
+        // Custom; added for convenience
 
         /**
          * OPTIONAL. This parameter enables clients to be pass tenant information in a jwt that is
@@ -248,8 +301,11 @@ object OpenID {
         const val CLIENT_SECRET_EXPIRES_AT = "client_secret_expires_at"
     }
 
+    /**
+     * OpenID Error Registry.
+     */
     object Error {
-        // Extension
+        // Custom; added for convenience
 
         /**
          * The tenant_uri in the Authorization Tenant returns an error or contains invalid data.
@@ -356,7 +412,12 @@ object OpenID {
         const val UNMET_AUTHENTICATION_REQUIREMENTS = "unmet_authentication_requirements"
     }
 
+    /**
+     * OpenID Scope Registry.
+     */
     object Scope {
+        // https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
+
         const val OPENID = "openid"
 
         // https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims
@@ -425,6 +486,9 @@ object OpenID {
         const val OFFLINE_ACCESS = "offline_access"
     }
 
+    /**
+     * OpenID values registry for parameter `response_type`
+     */
     object ResponseType {
         // https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#RegistryContents
 
@@ -506,6 +570,9 @@ object OpenID {
         const val CODE_ID_TOKEN_TOKEN = "code id_token token"
     }
 
+    /**
+     * OpenID values registry for parameter `response_mode`
+     */
     object ResponseMode {
         // https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html
 
@@ -543,6 +610,9 @@ object OpenID {
         const val FORM_POST = "form_post"
     }
 
+    /**
+     * OpenID values registry for parameter `display`
+     */
     object Display {
         // https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
 
@@ -573,6 +643,9 @@ object OpenID {
         const val WAP = "wap"
     }
 
+    /**
+     * OpenID values registry for parameter `prompt`
+     */
     object Prompt {
         // https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
 
@@ -623,12 +696,36 @@ object OpenID {
         const val CREATE = "create"
     }
 
+    /**
+     * Widely Used ACR Values
+     */
     object ACR {
+        // https://openid.net/specs/openid-connect-core-1_0.html#IDToken
+
+        /**
+         * The value "0" indicates the End-User authentication did not meet the
+         * requirements of ISO/IEC 29115 [`ISO29115`] level 1.
+         */
         const val ZERO = "0"
+
+        // https://spaces.at.internet2.edu/display/macedir/Identity+Assurance+Qualifiers+%28was+LOA%29--A+Recommended+URI+Profile+for+InCommon
+
+        /**
+         * Somehow mapped to NIST SP 800-63 Level of Assurance 1.
+         */
+        const val URN_MACE_INCOMMON_IAP_BRONZE = "urn:mace:incommon:iap:bronze"
+
+        /**
+         * Somehow mapped to NIST SP 800-63 Level of Assurance 2.
+         */
+        const val URN_MACE_INCOMMON_IAP_SILVER = "urn:mace:incommon:iap:silver"
     }
 
+    /**
+     * Widely Used AMR Values
+     */
     object AMR {
-        // Extensions
+        // Custom; added for convenience
 
         /**
          * Time-based one-time password
@@ -752,6 +849,9 @@ object OpenID {
         const val WIA = "wia"
     }
 
+    /**
+     * OpenID values registry for parameter `subject_type`
+     */
     object SubjectType {
         // https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes
 
@@ -769,16 +869,51 @@ object OpenID {
         const val PAIRWISE = "pairwise"
     }
 
+    /**
+     * Identifiers of OpenID Client Authentication Methods.
+     */
     object ClientAuthentication {
         // https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication
 
-        const val NONE = "none"
+        /**
+         * Clients that have received a client_secret value from the Authorization Server authenticate with the
+         * Authorization Server in accordance with Section 2.3.1 of OAuth 2.0 [`RFC6749`] using the HTTP Basic
+         * authentication scheme.
+         */
         const val CLIENT_SECRET_BASIC = "client_secret_basic"
+
+        /**
+         * Clients that have received a client_secret value from the Authorization Server, authenticate with the
+         * Authorization Server in accordance with Section 2.3.1 of OAuth 2.0 [`RFC6749`] by including the Client
+         * Credentials in the request body.
+         */
         const val CLIENT_SECRET_POST = "client_secret_post"
+
+        /**
+         * Clients that have received a client_secret value from the Authorization Server create a JWT using an HMAC
+         * SHA algorithm, such as HMAC SHA-256. The HMAC (Hash-based Message Authentication Code) is calculated using
+         * the octets of the UTF-8 representation of the client_secret as the shared key.
+         */
         const val CLIENT_SECRET_JWT = "client_secret_jwt"
+
+        /**
+         * Clients that have registered a public key sign a JWT using that key. The Client authenticates in accordance
+         * with JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants [`OAuth.JWT`]
+         * and Assertion Framework for OAuth 2.0 Client Authentication and Authorization Grants [`OAuth.Assertions`].
+         */
         const val PRIVATE_KEY_JWT = "private_key_jwt"
+
+        /**
+         * The Client does not authenticate itself at the Token Endpoint, either because it uses only the Implicit Flow
+         * (and so does not use the Token Endpoint) or because it is a Public Client with no Client Secret or other
+         * authentication mechanism.
+         */
+        const val NONE = "none"
     }
 
+    /**
+     * Identifiers of OpenID Claim Types.
+     */
     object ClaimType {
         /**
          * Claims that are directly asserted by the OpenID Provider.
@@ -796,6 +931,9 @@ object OpenID {
         const val DISTRIBUTED = "distributed"
     }
 
+    /**
+     * Identifiers of OpenID Application Types.
+     */
     object ApplicationType {
         // https://openid.net/specs/openid-connect-registration-1_0.html#ClientMetadata
 

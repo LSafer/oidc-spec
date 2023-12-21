@@ -1,15 +1,37 @@
+/*
+ *	Copyright 2023 cufy.org and meemer.com
+ *
+ *	Licensed under the Apache License, Version 2.0 (the "License");
+ *	you may not use this file except in compliance with the License.
+ *	You may obtain a copy of the License at
+ *
+ *	    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *	Unless required by applicable law or agreed to in writing, software
+ *	distributed under the License is distributed on an "AS IS" BASIS,
+ *	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *	See the License for the specific language governing permissions and
+ *	limitations under the License.
+ */
 package net.lsafer.oidc.openid
 
+/**
+ * Client Metadata Names Registry.
+ */
 object ClientMetadata {
-    // Extensions
+    // Custom; added for convenience
 
     /**
+     * **`Boolean = false`**
+     *
      * True if the Client has been manually verified (deserves verification badge)
      */
     const val VERIFIED = "verified"
 
     /**
      * **`Boolean = false`**
+     *
+     * True if the Client is allowed passing the parameters `tenant` and `tenant_uri`
      */
     const val MULTI_TENANT = "multi_tenant"
 
@@ -50,7 +72,7 @@ object ClientMetadata {
     // https://datatracker.ietf.org/doc/html/rfc7591#section-2
 
     /**
-     * **`String<scope>[] = ["openid"]`** [OpenID.Scope]
+     * **`String<scope>[] = ["openid"]`**
      *
      * String containing a space-separated list of scope values (as
      * described in Section 3.3 of OAuth 2.0 [`RFC6749`]) that the client
@@ -106,7 +128,7 @@ object ClientMetadata {
     const val REDIRECT_URIS = "redirect_uris"
 
     /**
-     * **`String<response_type>[] = ["code"]`** [OpenID.ResponseType]
+     * **`String<response_type>[] = ["code"]`**
      *
      * OPTIONAL. JSON array containing a list of the OAuth 2.0 response_type values that the Client is declaring that it
      * will restrict itself to using. If omitted, the default is that the Client will use only the code Response Type.
@@ -138,7 +160,7 @@ object ClientMetadata {
     const val GRANT_TYPES = "grant_types"
 
     /**
-     * **`String<application_type> = "web"`** [OpenID.ApplicationType]
+     * **`String<application_type> = "web"`**
      *
      * OPTIONAL. Kind of the application. The default, if omitted, is web. The defined values are native or web. Web
      * Clients using the OAuth Implicit Grant Type MUST only register URLs using the https scheme as redirect_uris; they
@@ -159,7 +181,7 @@ object ClientMetadata {
     const val CONTACTS = "contacts"
 
     /**
-     * **`String? = null`** (i18n)
+     * **`String? = null`**
      *
      * OPTIONAL. Name of the Client to be presented to the End-User. If desired, representation of this Claim in
      * different languages and scripts is represented as described in Section 2.1.
@@ -167,7 +189,7 @@ object ClientMetadata {
     const val CLIENT_NAME = "client_name"
 
     /**
-     * **`String? = null`** (i18n)
+     * **`String? = null`**
      *
      * OPTIONAL. URL that references a logo for the Client application. If present, the server SHOULD display this image
      * to the End-User during approval. The value of this field MUST point to a valid image file. If desired,
@@ -176,7 +198,7 @@ object ClientMetadata {
     const val LOGO_URI = "logo_uri"
 
     /**
-     * **`String<uri>? = null`** (i18n)
+     * **`String<uri>? = null`**
      *
      * OPTIONAL. URL of the home page of the Client. The value of this field MUST point to a valid Web page. If present,
      * the server SHOULD display this URL to the End-User in a followable fashion. If desired, representation of this
@@ -185,7 +207,7 @@ object ClientMetadata {
     const val CLIENT_URI = "client_uri"
 
     /**
-     * **`String<uri>? = null`** (i18n)
+     * **`String<uri>? = null`**
      *
      * OPTIONAL. URL that the Relying Party Client provides to the End-User to read about the how the profile data will
      * be used. The value of this field MUST point to a valid web page. The OpenID Provider SHOULD display this URL to
@@ -195,7 +217,7 @@ object ClientMetadata {
     const val POLICY_URI = "policy_uri"
 
     /**
-     * **`String<uri>? = null`** (i18n)
+     * **`String<uri>? = null`**
      *
      * OPTIONAL. URL that the Relying Party Client provides to the End-User to read about the Relying Party's terms of
      * service. The value of this field MUST point to a valid web page. The OpenID Provider SHOULD display this URL to
@@ -242,7 +264,7 @@ object ClientMetadata {
     const val SECTOR_IDENTIFIER_URI = "sector_identifier_uri"
 
     /**
-     * **`String<subject_type>? = null`** [OpenID.SubjectType]
+     * **`String<subject_type>? = null`**
      *
      * OPTIONAL. subject_type requested for responses to this Client. The subject_types_supported Discovery parameter
      * contains a list of the supported subject_type values for this server. Valid types include pairwise and public.
@@ -340,7 +362,7 @@ object ClientMetadata {
     const val REQUEST_OBJECT_ENCRYPTION_ENC = "request_object_encryption_enc"
 
     /**
-     * **`String<client_authentication> = "client_secret_basic"`** [OpenID.ClientAuthentication]
+     * **`String<client_authentication> = "client_secret_basic"`**
      *
      * OPTIONAL. Requested Client Authentication method for the Token Endpoint. The options are client_secret_post,
      * client_secret_basic, client_secret_jwt, private_key_jwt, and none, as described in Section 9 of OpenID Connect
@@ -380,7 +402,7 @@ object ClientMetadata {
     const val REQUIRE_AUTH_TIME = "require_auth_time"
 
     /**
-     * **`String<acr>[]? = null`** [OpenID.ACR]
+     * **`String<acr>[]? = null`**
      *
      * OPTIONAL. Default requested Authentication Context Class Reference values. Array of strings that specifies the
      * default acr values that the OP is being requested to use for processing requests from this Client, with the
