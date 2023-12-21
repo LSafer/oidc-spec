@@ -27,6 +27,11 @@ object JwtClaim {
     const val VERIFIED = "verified"
 
     /**
+     * True if the Subject is declared to be banned.
+     */
+    const val BANNED = "banned"
+
+    /**
      * OPTIONAL. The id of the tenant the token is bound to.
      *
      * If omitted, the access token acts as a general access token with
