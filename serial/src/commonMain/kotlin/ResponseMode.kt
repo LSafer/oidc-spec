@@ -10,7 +10,10 @@ enum class ResponseMode(val value: String) {
     QUERY(OpenID.ResponseMode.QUERY),
 
     @SerialName(OpenID.ResponseMode.FRAGMENT)
-    FRAGMENT(OpenID.ResponseMode.FRAGMENT);
+    FRAGMENT(OpenID.ResponseMode.FRAGMENT),
+
+    @SerialName(OpenID.ResponseMode.FORM_POST)
+    FORM_POST(OpenID.ResponseMode.FORM_POST);
 
     override fun toString() = value
 }
@@ -24,6 +27,9 @@ fun String.toResponseModeOrNull(): ResponseMode? {
 
         OpenID.ResponseMode.FRAGMENT,
         -> ResponseMode.FRAGMENT
+
+        OpenID.ResponseMode.FORM_POST,
+        -> ResponseMode.FORM_POST
 
         else -> null
     }
