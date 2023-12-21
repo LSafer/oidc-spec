@@ -1,4 +1,4 @@
-# OIDC SPEC
+# OIDC SPEC [![](https://jitpack.io/v/net.lsafer/oidc-spec.svg)](https://jitpack.io/#net.lsafer/oidc-spec)
 
 OpenID Connect Specifications Constants and Serialization
 
