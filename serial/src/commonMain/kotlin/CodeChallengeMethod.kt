@@ -17,18 +17,18 @@ package net.lsafer.oidc.serial
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import net.lsafer.oidc.oauth.PKCE
+import net.lsafer.oidc.oauth.OAuth
 
-/** @see PKCE.CodeChallengeMethod */
+/** @see OAuth.CodeChallengeMethod */
 @Serializable
 enum class CodeChallengeMethod(val value: String) {
-    /** @see PKCE.CodeChallengeMethod.PLAIN */
-    @SerialName(PKCE.CodeChallengeMethod.PLAIN)
-    PLAIN(PKCE.CodeChallengeMethod.PLAIN),
+    /** @see OAuth.CodeChallengeMethod.PLAIN */
+    @SerialName(OAuth.CodeChallengeMethod.PLAIN)
+    PLAIN(OAuth.CodeChallengeMethod.PLAIN),
 
-    /** @see PKCE.CodeChallengeMethod.S256 */
-    @SerialName(PKCE.CodeChallengeMethod.S256)
-    S256(PKCE.CodeChallengeMethod.S256);
+    /** @see OAuth.CodeChallengeMethod.S256 */
+    @SerialName(OAuth.CodeChallengeMethod.S256)
+    S256(OAuth.CodeChallengeMethod.S256);
 
     override fun toString() = value
 }
@@ -37,10 +37,10 @@ fun String.toCodeChallengeMethodOrNull(): CodeChallengeMethod? {
     // do not replace with string manipulation tricks
     // this is way faster and way straight forward.
     return when (this) {
-        PKCE.CodeChallengeMethod.PLAIN,
+        OAuth.CodeChallengeMethod.PLAIN,
         -> CodeChallengeMethod.PLAIN
 
-        PKCE.CodeChallengeMethod.S256,
+        OAuth.CodeChallengeMethod.S256,
         -> CodeChallengeMethod.S256
 
         else -> null
