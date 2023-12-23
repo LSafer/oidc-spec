@@ -27,9 +27,9 @@ object JwtClaim {
     const val VERIFIED = "verified"
 
     /**
-     * True if the Subject is declared to be banned.
+     * True if the Subject is declared to be suspended (banned).
      */
-    const val BANNED = "banned"
+    const val SUSPENDED = "suspended"
 
     /**
      * OPTIONAL. The id of the tenant the token is bound to.
