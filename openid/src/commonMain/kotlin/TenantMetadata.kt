@@ -24,6 +24,13 @@ object TenantMetadata {
     /**
      * **`Boolean = false`**
      *
+     * True if the Project is totally trusted. (does not need user consent)
+     */
+    const val TRUSTED = "trusted"
+
+    /**
+     * **`Boolean = false`**
+     *
      * True if the Tenant has been manually verified (deserves verification badge)
      */
     const val VERIFIED = "verified"
