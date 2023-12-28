@@ -44,6 +44,11 @@ object JwtClaim {
      */
     const val SESSION = "session"
 
+    /**
+     * Other additional address of the user.
+     */
+    const val ADDITIONAL_ADDRESSES = "additional_addresses"
+
     // https://www.iana.org/assignments/jwt/jwt.xhtml
 
     /**
@@ -286,6 +291,13 @@ object JwtClaim {
      * The members of the [ADDRESS] claim.
      */
     object Address {
+        // Custom; added for conveience
+
+        /**
+         * The name of the address given by the user.
+         */
+        const val LABEL = "label"
+
         // https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim
 
         /**
