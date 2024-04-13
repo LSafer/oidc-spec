@@ -16,7 +16,7 @@
 package net.lsafer.oidc.jose
 
 /**
- * JWT values registry for header parameter `alg`
+ * JWT values registry for common parameter `alg`
  */
 object JwtAlgorithm {
     // https://datatracker.ietf.org/doc/html/rfc7518#section-3.1
@@ -82,7 +82,7 @@ object JwtAlgorithm {
     const val PS512 = "PS512"
 
     /**
-     * No signature.
+     * No Signature
      */
     const val NONE = "none"
 

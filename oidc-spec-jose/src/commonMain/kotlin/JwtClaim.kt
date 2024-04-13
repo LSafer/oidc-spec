@@ -291,7 +291,7 @@ object JwtClaim {
      * The members of the [ADDRESS] claim.
      */
     object Address {
-        // Custom; added for conveience
+        // Custom; added for convenience
 
         /**
          * The name of the address given by the user.
@@ -457,33 +457,29 @@ object JwtClaim {
     //
 
     /**
-     *
-     *     Session ID
+     * Session ID
      */
     const val SID = "sid"
 
     //
 
     /**
-     *     Actor
+     * Actor
      */
     const val ACT = "act"
 
     /**
-     *
-     *     Scope Values
+     * Scope Values
      */
     const val SCOPE = "scope"
 
     /**
-     *
-     *     Client Identifier
+     * Client Identifier
      */
     const val CLIENT_ID = "client_id"
 
     /**
-     *
-     *     Authorized Actor - the party that is authorized to become the actor
+     * Authorized Actor - the party that is authorized to become the actor
      */
     const val MAY_ACT = "may_act"
 
@@ -530,362 +526,329 @@ object JwtClaim {
     //
 
     /**
-     *
-     *     Token introspection response
+     * Token introspection response
      */
     const val TOKEN_INTROSPECTION = "token_introspection"
 
     //
 
     /**
-     *
-     *     This container Claim is composed of the verification evidence related to a certain verification process and the corresponding Claims about the End-User which were verified in this process.
+     * This container Claim is composed of the verification evidence related
+     * to a certain verification process and the corresponding Claims about
+     * the End-User which were verified in this process.
      */
     const val VERIFIED_CLAIMS = "verified_claims"
 
     /**
-     *
-     *     A structured Claim representing the End-User's place of birth.
+     * A structured Claim representing the End-User's place of birth.
      */
     const val PLACE_OF_BIRTH = "place_of_birth"
 
     /**
-     *
-     *     String array representing the End-User's nationalities.
+     * String array representing the End-User's nationalities.
      */
     const val NATIONALITIES = "nationalities"
 
     /**
-     *
-     *     Family name(s) someone has when they were born, or at least from the time they were a child. This term can be used by a person who changes the family name(s) later in life for any reason. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.
+     * Family name(s) someone has when they were born, or at least from the
+     * time they were a child. This term can be used by a person who changes
+     * the family name(s) later in life for any reason. Note that in some
+     * cultures, people can have multiple family names or no family name;
+     * all can be present, with the names being separated by space characters.
      */
     const val BIRTH_FAMILY_NAME = "birth_family_name"
 
     /**
-     *
-     *     Given name(s) someone has when they were born, or at least from the time they were a child. This term can be used by a person who changes the given name later in life for any reason. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
+     * Given name(s) someone has when they were born, or at least from the time
+     * they were a child. This term can be used by a person who changes the given
+     * name later in life for any reason. Note that in some cultures, people can
+     * have multiple given names; all can be present, with the names being separated
+     * by space characters.
      */
     const val BIRTH_GIVEN_NAME = "birth_given_name"
 
     /**
-     *
-     *     Middle name(s) someone has when they were born, or at least from the time they were a child. This term can be used by a person who changes the middle name later in life for any reason. Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters. Also note that in some cultures, middle names are not used.
+     * Middle name(s) someone has when they were born, or at least from the time
+     * they were a child. This term can be used by a person who changes the middle
+     * name later in life for any reason. Note that in some cultures, people can
+     * have multiple middle names; all can be present, with the names being separated
+     * by space characters. Also note that in some cultures, middle names are not used.
      */
     const val BIRTH_MIDDLE_NAME = "birth_middle_name"
 
     /**
-     *
-     *     End-User's salutation, e.g., "Mr."
+     * End-User's salutation, e.g., "Mr."
      */
     const val SALUTATION = "salutation"
 
     /**
-     *
-     *     End-User's title, e.g., "Dr."
+     * End-User's title, e.g., "Dr."
      */
     const val TITLE = "title"
 
     /**
-     *
-     *     End-User's mobile phone number formatted according to ITU-T recommendation [E.164]
+     * End-User's mobile phone number formatted according to ITU-T recommendation [`E.164`].
      */
     const val MSISDN = "msisdn"
 
     /**
-     *
-     *     Stage name, religious name or any other type of alias/pseudonym with which a person is known in a specific context besides its legal name. This must be part of the applicable legislation and thus the trust framework (e.g., be an attribute on the identity card).
+     * Stage name, religious name or any other type of alias/pseudonym with which a person
+     * is known in a specific context besides its legal name. This must be part of the
+     * applicable legislation and thus the trust framework (e.g., be an attribute on the
+     * identity card).
      */
     const val ALSO_KNOWN_AS = "also_known_as"
 
     //
 
     /**
-     *
-     *     JSON object whose member names are the Claim Names for the Aggregated and Distributed Claims
+     * JSON object whose member names are the Claim Names for the Aggregated and Distributed Claims.
      */
     const val CLAIM_NAMES = "_claim_names"
 
     /**
-     *
-     *     JSON object whose member names are referenced by the member values of the _claim_names member
+     * JSON object whose member names are referenced by the member values of the _claim_names member.
      */
     const val CLAIM_SOURCES = "_claim_sources"
 
     //
 
     /**
-     *
-     *     Public key used to check the signature of an ID Token
+     * Public key used to check the signature of an ID Token.
      */
     const val SUB_JWK = "sub_jwk"
 
     /**
-     *
-     *     Confirmation
+     * Confirmation
      */
     const val CNF = "cnf"
 
     /**
-     *
-     *     SIP From tag header field parameter value
+     * SIP From tag header field parameter value.
      */
     const val SIP_FROM_TAG = "sip_from_tag"
 
     /**
-     *
-     *     SIP Date header field value
+     * SIP Date header field value.
      */
     const val SIP_DATE = "sip_date"
 
     /**
-     *
-     *     SIP Call-Id header field value
+     * SIP Call-Id header field value.
      */
     const val SIP_CALLID = "sip_callid"
 
     /**
-     *
-     *     SIP CSeq numeric header field parameter value
+     * SIP CSeq numeric header field parameter value.
      */
     const val SIP_CSEQ_NUM = "sip_cseq_num"
 
     /**
-     *
-     *     SIP Via branch header field parameter value
+     * SIP Via branch header field parameter value.
      */
     const val SIP_VIA_BRANCH = "sip_via_branch"
 
     /**
-     *
-     *     Originating Identity String
+     * Originating Identity String
      */
     const val ORIG = "orig"
 
     /**
-     *
-     *     Destination Identity String
+     * Destination Identity String
      */
     const val DEST = "dest"
 
     /**
-     *
-     *     Media Key Fingerprint String
+     * Media Key Fingerprint String
      */
     const val MKY = "mky"
 
     /**
-     *
-     *     Security Events
+     * Security Events
      */
     const val EVENTS = "events"
 
     /**
-     *
-     *     Time of Event
+     * Time of Event
      */
     const val TOE = "toe"
 
     /**
-     *
-     *     Transaction Identifier
+     * Transaction Identifier
      */
     const val TXN = "txn"
 
     /**
-     *
-     *     Resource Priority Header Authorization
+     * Resource Priority Header Authorization
      */
     const val RPH = "rph"
 
     /**
-     *
-     *     Vector of Trust value
+     * Vector of Trust value
      */
     const val VOT = "vot"
 
     /**
-     *
-     *     Vector of Trust trustmark URL
+     * Vector of Trust trustmark URL
      */
     const val VTM = "vtm"
 
     /**
-     *
-     *     Attestation level as defined in SHAKEN framework
+     * Attestation level as defined in SHAKEN framework
      */
     const val ATTEST = "attest"
 
     /**
-     *
-     *     Originating Identifier as defined in SHAKEN framework
+     * Originating Identifier as defined in SHAKEN framework
      */
     const val ORIGID = "origid"
 
     /**
-     *
-     *     jCard data
+     * jCard data
      */
     const val JCARD = "jcard"
 
     /**
-     *
-     *     Number of API requests for which the access token can be used
+     * Number of API requests for which the access token can be used
      */
     const val AT_USE_NBR = "at_use_nbr"
 
     /**
-     *
-     *     Diverted Target of a Call
+     * Diverted Target of a Call
      */
     const val DIV = "div"
 
     /**
-     *
-     *     Original PASSporT (in Full Form)
+     * Original PASSporT (in Full Form)
      */
     const val OPT = "opt"
 
     /**
-     *
-     *     Verifiable Credential as specified in the W3C Recommendation
+     * Verifiable Credential as specified in the W3C Recommendation
      */
     const val VC = "vc"
 
     /**
-     *
-     *     Verifiable Presentation as specified in the W3C Recommendation
+     * Verifiable Presentation as specified in the W3C Recommendation
      */
     const val VP = "vp"
 
     /**
-     *
-     *     SIP Priority header field
+     * SIP Priority header field
      */
     const val SPH = "sph"
 
     /**
-     *
-     *     The ACE profile a token is supposed to be used with.
+     * The ACE profile a token is supposed to be used with.
      */
     const val ACE_PROFILE = "ace_profile"
 
     /**
-     *
-     *     "client-nonce". A nonce previously provided to the AS by the RS via the client. Used to verify token freshness when the RS cannot synchronize its clock with the AS.
+     * "client-nonce".
+     * A nonce previously provided to the AS by the RS via the client.
+     * Used to verify token freshness when the RS cannot synchronize
+     * its clock with the AS.
      */
     const val CNONCE = "cnonce"
 
     /**
-     *
-     *     "Expires in". Lifetime of the token in seconds from the time the RS first sees it. Used to implement a weaker from of token expiration for devices that cannot synchronize their internal clocks.
+     * "Expires in".
+     * Lifetime of the token in seconds from the time the RS first sees it.
+     * Used to implement a weaker from of token expiration for devices that
+     * cannot synchronize their internal clocks.
      */
     const val EXI = "exi"
 
     /**
-     *
-     *     CDNI Claim Set Version
+     * CDNI Claim Set Version
      */
     const val CDNIV = "cdniv"
 
     /**
-     *
-     *     CDNI Critical Claims Set
+     * CDNI Critical Claims Set
      */
     const val CDNICRIT = "cdnicrit"
 
     /**
-     *
-     *     CDNI IP Address
+     * CDNI IP Address
      */
     const val CDNIIP = "cdniip"
 
     /**
-     *
-     *     CDNI URI Container
+     * CDNI URI Container
      */
     const val CDNIUC = "cdniuc"
 
     /**
-     *
-     *     CDNI Expiration Time Setting for Signed Token Renewal
+     * CDNI Expiration Time Setting for Signed Token Renewal
      */
     const val CDNIETS = "cdniets"
 
     /**
-     *
-     *     CDNI Signed Token Transport Method for Signed Token Renewal
+     * CDNI Signed Token Transport Method for Signed Token Renewal
      */
     const val CDNISTT = "cdnistt"
 
     /**
-     *
-     *     CDNI Signed Token Depth
+     * CDNI Signed Token Depth
      */
     const val CDNISTD = "cdnistd"
 
     /**
-     *
-     *     Signature Validation Token
+     * Signature Validation Token
      */
     const val SIG_VAL_CLAIMS = "sig_val_claims"
 
     /**
-     *
-     *     The claim authorization_details contains a JSON array of JSON objects representing the rights of the access token. Each JSON object contains the data to specify the authorization requirements for a certain type of resource.
+     * The claim authorization_details contains a JSON array of JSON objects
+     * representing the rights of the access token. Each JSON object contains
+     * the data to specify the authorization requirements for a certain type
+     * of resource.
      */
     const val AUTHORIZATION_DETAILS = "authorization_details"
 
     /**
-     *
-     *     The HTTP method of the request
+     * The HTTP method of the request
      */
     const val HTM = "htm"
 
     /**
-     *
-     *     The HTTP URI of the request (without query and fragment parts)
+     * The HTTP URI of the request (without query and fragment parts)
      */
     const val HTU = "htu"
 
     /**
-     *
-     *     The base64url-encoded SHA-256 hash of the ASCII encoding of the associated access token's value
+     * The base64url-encoded SHA-256 hash of the ASCII encoding of the associated access token's value.
      */
     const val ATH = "ath"
 
     /**
-     *
-     *     Authority Token Challenge
+     * Authority Token Challenge
      */
     const val ATC = "atc"
 
     /**
-     *
-     *     Subject Identifier
+     * Subject Identifier
      */
     const val SUB_ID = "sub_id"
 
     /**
-     *
-     *     Rich Call Data Information
+     * Rich Call Data Information
      */
     const val RCD = "rcd"
 
     /**
-     *
-     *     Rich Call Data Integrity Information
+     * Rich Call Data Integrity Information
      */
     const val RCDI = "rcdi"
 
     /**
-     *
-     *     Call Reason
+     * Call Reason
      */
     const val CRN = "crn"
 
     /**
-     *
-     *     Message Integrity Information
+     * Message Integrity Information
      */
     const val MSGI = "msgi"
 }

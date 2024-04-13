@@ -17,9 +17,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":jose"))
-                implementation(project(":oauth"))
-                implementation(project(":openid"))
+                implementation(project(":oidc-spec-jose"))
+                implementation(project(":oidc-spec-oauth"))
+                implementation(project(":oidc-spec-openid"))
 
                 implementation(kotlin("stdlib"))
 

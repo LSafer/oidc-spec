@@ -11,7 +11,7 @@ tasks.wrapper {
 }
 
 subprojects {
-    group = "net.lsafer.identity"
+    group = "net.lsafer.oidc"
 
     repositories {
         mavenCentral()

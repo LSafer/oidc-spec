@@ -43,9 +43,9 @@ repositories {
 
 dependencies {
     // Replace TAG with the desired version
-    implementation("net.lsafer.oidc-spec:jose:TAG")
-    implementation("net.lsafer.oidc-spec:oauth:TAG")
-    implementation("net.lsafer.oidc-spec:openid:TAG")
-    implementation("net.lsafer.oidc-spec:serial:TAG")
+    implementation("net.lsafer.oidc-spec:oidc-spec-jose:TAG")
+    implementation("net.lsafer.oidc-spec:oidc-spec-oauth:TAG")
+    implementation("net.lsafer.oidc-spec:oidc-spec-openid:TAG")
+    implementation("net.lsafer.oidc-spec:oidc-spec-serial:TAG")
 }
 ```

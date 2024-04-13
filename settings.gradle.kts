@@ -14,7 +14,9 @@ pluginManagement {
 
 rootProject.name = "oidc-spec"
 
-include(":oauth")
-include(":openid")
-include(":jose")
-include(":serial")
+// include directories that starts with "oidc-spec-"
+for (file in rootDir.listFiles().orEmpty()) {
+    if (file.isDirectory && file.name.startsWith("oidc-spec-")) {
+        include(":${file.name}")
+    }
+}

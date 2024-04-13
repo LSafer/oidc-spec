@@ -20,7 +20,7 @@ package net.lsafer.oidc.oauth
  */
 object OAuth {
     /**
-     * Our chosen base path for oauth. (not part of openid specification)
+     * Our chosen base path for oauth. (not part of oauth specification)
      */
     const val PATH = "/oauth2"
 

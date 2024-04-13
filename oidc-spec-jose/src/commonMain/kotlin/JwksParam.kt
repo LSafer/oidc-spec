@@ -16,18 +16,19 @@
 package net.lsafer.oidc.jose
 
 /**
- * JWK values registry for parameter `use`
+ * Jwk Set Parameter Names Registry
  */
-object JwkUse {
-    // https://datatracker.ietf.org/doc/html/rfc7517#section-4.2
+object JwksParam {
+    // https://datatracker.ietf.org/doc/html/rfc7517#section-5
 
     /**
-     * Use for Signature.
+     * The value of the "keys" parameter is an array of JWK values. By
+     * default, the order of the JWK values within the array does not imply
+     * an order of preference among them, although applications of JWK Sets
+     * can choose to assign a meaning to the order for their purposes, if
+     * desired.
+     *
+     * @see <a href=https://datatracker.ietf.org/doc/html/rfc7517#section-5.1>RFC7517 5.1</a>
      */
-    const val SIG = "sig"
-
-    /**
-     * Use for Encryption.
-     */
-    const val ENC = "enc"
+    const val KEYS = "keys"
 }
