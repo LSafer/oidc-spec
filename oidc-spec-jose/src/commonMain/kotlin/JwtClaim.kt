@@ -21,6 +21,8 @@ package net.lsafer.oidc.jose
 object JwtClaim {
     // Custom; added for convenience
 
+    const val SOFTWARE_ID = "software_id"
+
     /**
      * True if the Subject has been manually verified (deserves verification badge)
      */
