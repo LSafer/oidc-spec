@@ -23,7 +23,7 @@ import io.ktor.util.*
 
 open class OidcClient(val httpClient: HttpClient)
 
-fun <T : HttpClientEngineConfig> OidcClient(
+fun OidcClient(
     block: HttpClientConfig<*>.() -> Unit = {},
 ): OidcClient = OidcClient(HttpClient {
     initOidcClient()
