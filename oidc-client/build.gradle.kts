@@ -19,6 +19,7 @@ kotlin {
             dependencies {
                 implementation(project(":oidc-spec-oauth"))
                 implementation(project(":oidc-spec-openid"))
+                implementation(project(":oidc-spec-jose"))
                 implementation(project(":oidc-spec-serial"))
 
                 implementation(kotlin("stdlib"))
