@@ -30,7 +30,7 @@ import net.lsafer.oidc.openid.OpenID
  */
 suspend fun OidcClient.fetchConfiguration(issuer: String): DiscoveryObject {
     val response = httpClient.get(issuer) {
-        url.appendPathSegments(OpenID.Endpoint.OPENID_CONFIGURATION, encodeSlash = true)
+        url.appendPathSegments(OpenID.Endpoint.OPENID_CONFIGURATION)
     }
 
     return DiscoveryObject(response.body<JsonObject>())
