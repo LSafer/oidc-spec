@@ -95,6 +95,64 @@ object OAuth {
          * REQUIRED. Code verifier
          */
         const val CODE_VERIFIER = "code_verifier"
+
+        // https://datatracker.ietf.org/doc/html/rfc8693#section-2.1
+
+        /**
+         * OPTIONAL. A URI that indicates the target service or resource where
+         * the client intends to use the requested security token.
+         */
+        const val RESOURCE = "resource"
+
+        /**
+         * OPTIONAL. The logical name of the target service where the client intends to
+         * use the requested security token.
+         */
+        const val AUDIENCE = "audience"
+
+        /**
+         * OPTIONAL. An identifier for the type of the requested security token.
+         * If the requested type is unspecified, the issued token type is at the
+         * discretion of the authorization server and may be dictated by knowledge
+         * of the requirements of the service or resource indicated by the resource
+         * or audience parameter.
+         */
+        const val REQUESTED_TOKEN_TYPE = "requested_token_type"
+
+        /**
+         * REQUIRED. A security token that represents the identity of the party on
+         * behalf of whom the request is being made. Typically, the subject of this
+         * token will be the subject of the security token issued in response to the
+         * request.
+         */
+        const val SUBJECT_TOKEN = "subject_token"
+
+        /**
+         * REQUIRED. An identifier, as described in Section 3, that indicates the
+         * type of the security token in the subject_token parameter.
+         */
+        const val SUBJECT_TOKEN_TYPE = "subject_token_type"
+
+        /**
+         * OPTIONAL. A security token that represents the identity of the acting party.
+         * Typically, this will be the party that is authorized to use the requested
+         * security token and act on behalf of the subject.
+         */
+        const val ACTOR_TOKEN = "actor_token"
+
+        /**
+         * An identifier, as described in Section 3, that indicates the type of the
+         * security token in the actor_token parameter. This is REQUIRED when the actor_token
+         * parameter is present in the request but MUST NOT be included otherwise.
+         */
+        const val ACTOR_TOKEN_TYPE = "actor_token_type"
+
+        // https://datatracker.ietf.org/doc/html/rfc8693#section-2.2.1
+
+        /**
+         * REQUIRED. An identifier for the representation of the issued security token.
+         */
+        const val ISSUED_TOKEN_TYPE = "issued_token_type"
     }
 
     /**
@@ -189,6 +247,16 @@ object OAuth {
          * resource.
          */
         const val INSUFFICIENT_SCOPE = "insufficient_scope"
+
+        // https://datatracker.ietf.org/doc/html/rfc8693#section-2.2.2
+
+        /**
+         * If the authorization server is unwilling or unable to issue a
+         * token for any target service indicated by the resource or audience
+         * parameters, the invalid_target error code SHOULD be used in the
+         * error response.
+         */
+        const val INVALID_TARGET = "invalid_target"
     }
 
     /**
@@ -212,6 +280,10 @@ object OAuth {
         const val CLIENT_CREDENTIALS = "client_credentials"
         const val REFRESH_TOKEN = "refresh_token"
         const val PASSWORD = "password"
+
+        // https://datatracker.ietf.org/doc/html/rfc8693#section-2.1
+
+        const val TOKEN_EXCHANGE = "urn:ietf:params:oauth:grant-type:token-exchange"
     }
 
     /**
@@ -239,5 +311,37 @@ object OAuth {
          * code_challenge = BASE64URL-ENCODE(SHA256(ASCII(code_verifier)))
          */
         const val S256 = "S256"
+    }
+
+    /**
+     * In token exchange, this a collection of token type identifiers.
+     */
+    object TokenType {
+        // https://datatracker.ietf.org/doc/html/rfc8693#section-3
+
+        /**
+         * Indicates that the token is an OAuth 2.0 access token issued by the given authorization server.
+         */
+        const val ACCESS_TOKEN = "urn:ietf:params:oauth:token-type:access_token"
+
+        /**
+         * Indicates that the token is an OAuth 2.0 refresh token issued by the given authorization server.
+         */
+        const val REFRESH_TOKEN = "urn:ietf:params:oauth:token-type:refresh_token"
+
+        /**
+         * Indicates that the token is an ID Token as defined in Section 2 of [`OpenID.Core`].
+         */
+        const val ID_TOKEN = "urn:ietf:params:oauth:token-type:id_token"
+
+        /**
+         * Indicates that the token is a base64url-encoded SAML 1.1 [OASIS.saml-core-1.1] assertion.
+         */
+        const val SAML_1 = "urn:ietf:params:oauth:token-type:saml1"
+
+        /**
+         * Indicates that the token is a base64url-encoded SAML 2.0 [OASIS.saml-core-2.0-os] assertion.
+         */
+        const val SAML_2 = "urn:ietf:params:oauth:token-type:saml2"
     }
 }

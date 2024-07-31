@@ -9,6 +9,7 @@ OpenID Connect Specifications Constants and Serialization
 The following is a non-exhaustive list of specifications followed:
 
 - The OAuth 2.0 Authorization Framework [RFC6749](https://datatracker.ietf.org/doc/html/rfc6749)
+- OAuth 2.0 Token Exchange [RFC8693](https://datatracker.ietf.org/doc/html/rfc8693)
 - OAuth 2.0 Dynamic Client Registration Protocol [RFC7591](https://datatracker.ietf.org/doc/html/rfc7591)
 - Proof Key for Code Exchange by OAuth Public Clients [RFC7636](https://datatracker.ietf.org/doc/html/rfc7636)
 - Authentication Method Reference Values [RFC8176](https://datatracker.ietf.org/doc/html/rfc8176)
