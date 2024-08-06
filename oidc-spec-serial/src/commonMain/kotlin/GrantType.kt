@@ -40,7 +40,11 @@ enum class GrantType(val value: String) {
 
     /** @see OAuth.GrantType.PASSWORD */
     @SerialName(OAuth.GrantType.PASSWORD)
-    PASSWORD(OAuth.GrantType.PASSWORD);
+    PASSWORD(OAuth.GrantType.PASSWORD),
+
+    /** @see OAuth.GrantType.TOKEN_EXCHANGE */
+    @SerialName(OAuth.GrantType.TOKEN_EXCHANGE)
+    TOKEN_EXCHANGE(OAuth.GrantType.TOKEN_EXCHANGE);
 
     override fun toString() = value
 }
@@ -77,6 +81,9 @@ fun String.toGrantTypeOrNull(): GrantType? {
 
         OAuth.GrantType.PASSWORD,
         -> GrantType.PASSWORD
+
+        OAuth.GrantType.TOKEN_EXCHANGE,
+        -> GrantType.TOKEN_EXCHANGE
 
         else -> null
     }
