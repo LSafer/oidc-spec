@@ -320,6 +320,11 @@ object OAuth {
         // https://datatracker.ietf.org/doc/html/rfc8693#section-3
 
         /**
+         * Indicates that the token is a JWT.
+         */
+        const val JWT = "urn:ietf:params:oauth:token-type:jwt"
+
+        /**
          * Indicates that the token is an OAuth 2.0 access token issued by the given authorization server.
          */
         const val ACCESS_TOKEN = "urn:ietf:params:oauth:token-type:access_token"
