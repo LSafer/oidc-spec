@@ -47,6 +47,8 @@ suspend fun OidcClient.authorizationCodeGrant(
         this[OAuth.Param.CODE] = code
         this[OAuth.Param.REDIRECT_URI] = authorizationRequest.redirectUri
         this[OAuth.Param.CLIENT_ID] = clientId
+
+        authorizationRequest.codeVerifier?.let { this[OAuth.Param.CODE_VERIFIER] = it }
     }
 
     val response = httpClient.submitForm(endpoint, input) {
