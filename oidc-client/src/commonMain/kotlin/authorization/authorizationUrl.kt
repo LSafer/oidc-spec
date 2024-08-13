@@ -36,7 +36,7 @@ import kotlin.time.Duration
  * @param clientId the client id.
  * @param responseType the response type
  */
-fun authorizationRequestUrl(
+fun authorizationUrl(
     discovery: DiscoveryObject,
     authorizationRequest: AuthorizationRequest,
     //

@@ -4,13 +4,17 @@ import io.ktor.http.*
 import net.lsafer.oidc.client.AuthorizationRequest
 import net.lsafer.oidc.client.AuthorizationResponse
 
+/**
+ * @param authorizationRequest authorization request parameters.
+ * @param parameters response returned by authorization server.
+ */
 fun authorizationResponse(
-    request: AuthorizationRequest,
+    authorizationRequest: AuthorizationRequest,
     parameters: Parameters,
 ): AuthorizationResponse {
     val response = AuthorizationResponse(parameters)
 
-    check(request.state == null || request.state == response.state) {
+    check(authorizationRequest.state == null || authorizationRequest.state == response.state) {
         "Unexpected authorization state"
     }
 
