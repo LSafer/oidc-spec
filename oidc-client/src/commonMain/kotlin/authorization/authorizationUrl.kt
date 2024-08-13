@@ -89,6 +89,7 @@ fun authorizationUrl(
 
             @OptIn(ExperimentalEncodingApi::class)
             val base64url = Base64.UrlSafe.encode(SHA256().digest(codeVerifierBytes))
+                .substringBefore('=')
 
             builder.parameters[OAuth.Param.CODE_CHALLENGE] = base64url
             builder.parameters[OAuth.Param.CODE_CHALLENGE_METHOD] = codeChallengeMethod.value
