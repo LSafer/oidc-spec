@@ -16,41 +16,5 @@
 package net.lsafer.oidc.client
 
 import io.ktor.client.*
-import io.ktor.client.engine.*
-import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.serialization.kotlinx.json.*
-import io.ktor.util.*
 
 open class OidcClient(val httpClient: HttpClient)
-
-fun OidcClient(
-    block: HttpClientConfig<*>.() -> Unit = {},
-): OidcClient = OidcClient(HttpClient {
-    initOidcClient()
-    block()
-})
-
-fun <T : HttpClientEngineConfig> OidcClient(
-    engineFactory: HttpClientEngineFactory<T>,
-    block: HttpClientConfig<T>.() -> Unit = {},
-): OidcClient = OidcClient(HttpClient(engineFactory) {
-    initOidcClient()
-    block()
-})
-
-@KtorDsl
-fun OidcClient(
-    engine: HttpClientEngine,
-    block: HttpClientConfig<*>.() -> Unit,
-): OidcClient = OidcClient(HttpClient(engine) {
-    initOidcClient()
-    block()
-})
-
-private fun HttpClientConfig<*>.initOidcClient() {
-    install(ContentNegotiation) {
-        json()
-    }
-
-    expectSuccess = true
-}
