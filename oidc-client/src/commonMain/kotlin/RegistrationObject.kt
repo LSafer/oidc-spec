@@ -15,6 +15,7 @@
  */
 package net.lsafer.oidc.client
 
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonObject
 import net.lsafer.oidc.client.internal.asInstantFromEpochSeconds
 import net.lsafer.oidc.client.internal.asStringOrNull
@@ -23,6 +24,7 @@ import net.lsafer.oidc.openid.OpenID
 import kotlin.jvm.JvmInline
 
 @JvmInline
+@Serializable
 @Suppress("PropertyName")
 value class RegistrationObject(val value: JsonObject) {
     private fun string(name: String) = value[name]?.asStringOrNull

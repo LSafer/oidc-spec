@@ -15,6 +15,7 @@
  */
 package net.lsafer.oidc.client
 
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonObject
 import net.lsafer.oidc.client.internal.asBooleanOrNull
 import net.lsafer.oidc.client.internal.asInstantFromEpochSeconds
@@ -24,6 +25,7 @@ import net.lsafer.oidc.jose.JwtClaim
 import kotlin.jvm.JvmInline
 
 @JvmInline
+@Serializable
 @Suppress("PropertyName")
 value class UserinfoObject(val value: JsonObject) {
     private fun boolean(name: String) = value[name]?.asBooleanOrNull

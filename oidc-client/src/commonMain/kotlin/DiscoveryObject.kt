@@ -15,6 +15,7 @@
  */
 package net.lsafer.oidc.client
 
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonObject
 import net.lsafer.oidc.client.internal.asBooleanOrNull
 import net.lsafer.oidc.client.internal.asStringListOrNull
@@ -57,6 +58,7 @@ import net.lsafer.oidc.openid.DiscoveryMetadata.USERINFO_SIGNING_ALG_VALUES_SUPP
 import kotlin.jvm.JvmInline
 
 @JvmInline
+@Serializable
 @Suppress("PropertyName")
 value class DiscoveryObject(val value: JsonObject) {
     private fun boolean(name: String) = value[name]?.asBooleanOrNull
