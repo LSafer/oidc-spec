@@ -351,7 +351,7 @@ object ClientMetadata {
     const val REQUEST_OBJECT_ENCRYPTION_ENC = "request_object_encryption_enc"
 
     /**
-     * **`String<client_authentication> = "client_secret_basic"`**
+     * **`String<client_auth_method> = "client_secret_basic"`**
      *
      * OPTIONAL. Requested Client Authentication method for the Token Endpoint. The options are client_secret_post,
      * client_secret_basic, client_secret_jwt, private_key_jwt, and none, as described in Section 9 of OpenID Connect
