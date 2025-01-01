@@ -66,18 +66,24 @@ object OpenID {
      * OpenID Parameters Registry.
      */
     object Param {
-        // Custom; added for convenience
+        // Custom; multitenancy
 
         /**
-         * OPTIONAL. This parameter enables clients to be pass tenant information in a jwt that is
-         * optionally signed and/or encrypted.
+         * OPTIONAL. This parameter enables clients to provide an
+         * identity token jwt of the tenant subject signed by its issuer.
+         *
+         * This object MUST at least contain the `sub` and `iss` claims.
          */
         const val TENANT = "tenant"
 
         /**
-         * OPTIONAL. This parameter enables OpenID Connect tenant objects to be passed by reference, rather than by value.
-         * The tenant_uri value is a URL using the https scheme referencing a resource containing a Tenant Object
-         * value, which is a JWT containing the tenant data.
+         * OPTIONAL. This parameter enables clients to pass tenant identity
+         * token jwt by reference, rather than by value.
+         *
+         * The `tenant_uri` value is a URL using the https scheme referencing
+         * a resource containing a tenant identity token jwt signed by its issuer.
+         *
+         * The object MUST at least contain the `sub` and `iss` claims.
          */
         const val TENANT_URI = "tenant_uri"
 

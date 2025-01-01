@@ -34,14 +34,6 @@ object JwtClaim {
     const val SUSPENDED = "suspended"
 
     /**
-     * OPTIONAL. The id of the tenant the token is bound to.
-     *
-     * If omitted, the access token acts as a general access token with
-     * no access to tenant-specific data.
-     */
-    const val TENANT_ID = "tenant_id"
-
-    /**
      * OPTIONAL. confidential session variables interpreted by domain.
      */
     const val SESSION = "session"
@@ -50,6 +42,18 @@ object JwtClaim {
      * Other additional address of the user.
      */
     const val ADDITIONAL_ADDRESSES = "additional_addresses"
+
+    // Custom; multitenancy
+
+    /**
+     * OPTIONAL. The tenant object the token is bound to.
+     *
+     * This object MUST at least contain the `sub` and `iss` claims.
+     *
+     * If omitted, the access token acts as a general access token with
+     * no access to tenant-specific data.
+     */
+    const val TENANT = "tenant"
 
     // https://www.iana.org/assignments/jwt/jwt.xhtml
 
