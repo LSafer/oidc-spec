@@ -2,8 +2,6 @@
 
 OpenID Connect Specifications Constants and Serialization
 
-> This project will change to include a simple minimalistic oidc client.
-
 ### Specifications
 
 The following is a non-exhaustive list of specifications followed:
