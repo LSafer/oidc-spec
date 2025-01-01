@@ -872,7 +872,7 @@ object OpenID {
     /**
      * Identifiers of OpenID Client Authentication Methods.
      */
-    object ClientAuthentication {
+    object ClientAuthMethod {
         // https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication
 
         /**
