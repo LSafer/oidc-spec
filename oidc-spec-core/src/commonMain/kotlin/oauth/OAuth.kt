@@ -47,10 +47,6 @@ object OAuth {
      * OAuth Parameters Registry.
      */
     object Param {
-        // Custom; added for convenience
-
-        const val TENANT_ID = "tenant_id"
-
         // https://datatracker.ietf.org/doc/html/rfc6749#section-11.2.2
 
         const val CLIENT_ID = "client_id"

@@ -19,45 +19,6 @@ package net.lsafer.oidc.openid
  * Client Metadata Names Registry.
  */
 object ClientMetadata {
-    // Custom; added for convenience
-
-    /**
-     * **`Boolean = false`**
-     *
-     * True if the Client is totally trusted. (does not need user consent)
-     */
-    const val TRUSTED = "trusted"
-
-    /**
-     * **`Boolean = false`**
-     *
-     * True if the Client has been manually verified (deserves verification badge)
-     */
-    const val VERIFIED = "verified"
-
-    // Custom; multitenancy
-
-    /**
-     * **`String<uri>[] = []`**
-     *
-     * Exhaustive list of allowed `iss` claim values of `tenant` and `tenant_uri`.
-     */
-    const val TENANT_ISSUERS = "tenant_issuers"
-
-    /**
-     * **`String<uri>[]? = null`**
-     * OPTIONAL. Array of tenant_uri values that are pre-registered by the RP for use at the OP. Servers MAY cache the
-     * contents of the files referenced by these URIs and not retrieve them at the time they are used in a request. OPs
-     * can require that tenant_uri values used be pre-registered with the require_tenant_uri_registration discovery
-     * parameter.
-     *
-     * If the contents of the tenant file could ever change, these URI values SHOULD include the base64url encoded
-     * SHA-256 hash value of the file contents referenced by the URI as the value of the URI fragment. If the fragment
-     * value used for a URI changes, that signals the server that its cached value for that URI with the old fragment
-     * value is no longer valid.
-     */
-    const val TENANT_URIS = "tenant_uris"
-
     // https://datatracker.ietf.org/doc/html/rfc7591#section-2
 
     /**

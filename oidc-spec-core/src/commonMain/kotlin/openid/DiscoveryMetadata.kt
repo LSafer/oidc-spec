@@ -19,27 +19,6 @@ package net.lsafer.oidc.openid
  * Discovery Metadata Names Registry.
  */
 object DiscoveryMetadata {
-    // Custom; multitenancy
-
-    /**
-     * OPTIONAL. Boolean value specifying whether the OP supports use of the tenant parameter, with true indicating
-     * support. If omitted, the default value is false.
-     */
-    const val TENANT_PARAMETER_SUPPORTED = "tenant_parameter_supported"
-
-    /**
-     * OPTIONAL. Boolean value specifying whether the OP supports use of the tenant_uri parameter, with true
-     * indicating support. If omitted, the default value is true.
-     */
-    const val TENANT_URI_PARAMETER_SUPPORTED = "tenant_uri_parameter_supported"
-
-    /**
-     * OPTIONAL. Boolean value specifying whether the OP requires any tenant_uri values used to be pre-registered
-     * using the tenant_uris registration parameter. Pre-registration is REQUIRED when the value is true.
-     * If omitted, the default value is false.
-     */
-    const val REQUIRE_TENANT_URI_REGISTRATION = "require_tenant_uri_registration"
-
     // https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata
 
     /**

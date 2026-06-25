@@ -15,46 +15,13 @@
  */
 package net.lsafer.oidc.jose
 
+import net.lsafer.oidc.jose.JwtClaim.ADDRESS
+
+
 /**
  * Jwt Claim Names Registry
  */
 object JwtClaim {
-    // Custom; added for convenience
-
-    const val SOFTWARE_ID = "software_id"
-
-    /**
-     * True if the Subject has been manually verified (deserves verification badge)
-     */
-    const val VERIFIED = "verified"
-
-    /**
-     * True if the Subject is declared to be suspended (banned).
-     */
-    const val SUSPENDED = "suspended"
-
-    /**
-     * OPTIONAL. confidential session variables interpreted by domain.
-     */
-    const val SESSION = "session"
-
-    /**
-     * Other additional address of the user.
-     */
-    const val ADDITIONAL_ADDRESSES = "additional_addresses"
-
-    // Custom; multitenancy
-
-    /**
-     * OPTIONAL. The tenant object the token is bound to.
-     *
-     * This object MUST at least contain the `sub` and `iss` claims.
-     *
-     * If omitted, the access token acts as a general access token with
-     * no access to tenant-specific data.
-     */
-    const val TENANT = "tenant"
-
     // https://www.iana.org/assignments/jwt/jwt.xhtml
 
     /**

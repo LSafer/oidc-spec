@@ -15,6 +15,9 @@
  */
 package net.lsafer.oidc.openid
 
+import net.lsafer.oidc.openid.OpenID.Param.CLAIMS
+
+
 /**
  * OpenID Constants.
  */
@@ -66,27 +69,6 @@ object OpenID {
      * OpenID Parameters Registry.
      */
     object Param {
-        // Custom; multitenancy
-
-        /**
-         * OPTIONAL. This parameter enables clients to provide an
-         * identity token jwt of the tenant subject signed by its issuer.
-         *
-         * This object MUST at least contain the `sub` and `iss` claims.
-         */
-        const val TENANT = "tenant"
-
-        /**
-         * OPTIONAL. This parameter enables clients to pass tenant identity
-         * token jwt by reference, rather than by value.
-         *
-         * The `tenant_uri` value is a URL using the https scheme referencing
-         * a resource containing a tenant identity token jwt signed by its issuer.
-         *
-         * The object MUST at least contain the `sub` and `iss` claims.
-         */
-        const val TENANT_URI = "tenant_uri"
-
         // https://www.authlete.com/developers/definitive_guide/authorization_endpoint_spec/
         // https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
 
@@ -311,28 +293,6 @@ object OpenID {
      * OpenID Error Registry.
      */
     object Error {
-        // Custom; added for convenience
-
-        /**
-         * The tenant_uri in the Authorization Tenant returns an error or contains invalid data.
-         */
-        const val INVALID_TENANT_URI = "invalid_tenant_uri"
-
-        /**
-         * The tenant parameter contains an invalid Tenant Object.
-         */
-        const val INVALID_TENANT_OBJECT = "invalid_tenant_object"
-
-        /**
-         * The OP does not support use of the tenant parameter
-         */
-        const val TENANT_NOT_SUPPORTED = "tenant_not_supported"
-
-        /**
-         * The OP does not support use of the tenant_uri parameter
-         */
-        const val TENANT_URI_NOT_SUPPORTED = "tenant_uri_not_supported"
-
         // 3.1.2.6. Authentication Error Response https://openid.net/specs/openid-connect-core-1_0.html#AuthError
 
         /**
@@ -713,18 +673,6 @@ object OpenID {
          * requirements of ISO/IEC 29115 [`ISO29115`] level 1.
          */
         const val ZERO = "0"
-
-        // https://spaces.at.internet2.edu/display/macedir/Identity+Assurance+Qualifiers+%28was+LOA%29--A+Recommended+URI+Profile+for+InCommon
-
-        /**
-         * Somehow mapped to NIST SP 800-63 Level of Assurance 1.
-         */
-        const val URN_MACE_INCOMMON_IAP_BRONZE = "urn:mace:incommon:iap:bronze"
-
-        /**
-         * Somehow mapped to NIST SP 800-63 Level of Assurance 2.
-         */
-        const val URN_MACE_INCOMMON_IAP_SILVER = "urn:mace:incommon:iap:silver"
     }
 
     /**

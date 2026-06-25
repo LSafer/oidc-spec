@@ -26,12 +26,6 @@ value class OidcACR(val value: String) {
     companion object {
         /** @see OpenID.ACR.ZERO */
         val ZERO = OidcACR(OpenID.ACR.ZERO)
-
-        /** @see OpenID.ACR.URN_MACE_INCOMMON_IAP_BRONZE */
-        val URN_MACE_INCOMMON_IAP_BRONZE = OidcACR(OpenID.ACR.URN_MACE_INCOMMON_IAP_BRONZE)
-
-        /** @see OpenID.ACR.URN_MACE_INCOMMON_IAP_SILVER */
-        val URN_MACE_INCOMMON_IAP_SILVER = OidcACR(OpenID.ACR.URN_MACE_INCOMMON_IAP_SILVER)
     }
 
     override fun toString() = value
