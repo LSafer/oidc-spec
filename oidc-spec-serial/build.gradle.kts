@@ -17,10 +17,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":oidc-spec-jose"))
-                implementation(project(":oidc-spec-oauth"))
-                implementation(project(":oidc-spec-openid"))
-
+                implementation(project(":oidc-spec-core"))
                 implementation(kotlin("stdlib"))
 
                 implementation(libs.kotlinx.serialization.json)
