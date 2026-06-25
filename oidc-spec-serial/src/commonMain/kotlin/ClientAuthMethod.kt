@@ -15,53 +15,34 @@
  */
 package net.lsafer.oidc.serial
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import net.lsafer.oidc.openid.OpenID
+import kotlin.jvm.JvmInline
 
 /** @see OpenID.ClientAuthMethod */
+@JvmInline
 @Serializable
-enum class ClientAuthMethod(val value: String) {
-    /** @see OpenID.ClientAuthMethod.CLIENT_SECRET_BASIC */
-    @SerialName(OpenID.ClientAuthMethod.CLIENT_SECRET_BASIC)
-    CLIENT_SECRET_BASIC(OpenID.ClientAuthMethod.CLIENT_SECRET_BASIC),
+value class ClientAuthMethod(val value: String) {
+    companion object {
+        /** @see OpenID.ClientAuthMethod.CLIENT_SECRET_BASIC */
+        val CLIENT_SECRET_BASIC = ClientAuthMethod(OpenID.ClientAuthMethod.CLIENT_SECRET_BASIC)
 
-    /** @see OpenID.ClientAuthMethod.CLIENT_SECRET_POST */
-    @SerialName(OpenID.ClientAuthMethod.CLIENT_SECRET_POST)
-    CLIENT_SECRET_POST(OpenID.ClientAuthMethod.CLIENT_SECRET_POST),
+        /** @see OpenID.ClientAuthMethod.CLIENT_SECRET_POST */
+        val CLIENT_SECRET_POST = ClientAuthMethod(OpenID.ClientAuthMethod.CLIENT_SECRET_POST)
 
-    /** @see OpenID.ClientAuthMethod.CLIENT_SECRET_JWT */
-    @SerialName(OpenID.ClientAuthMethod.CLIENT_SECRET_JWT)
-    CLIENT_SECRET_JWT(OpenID.ClientAuthMethod.CLIENT_SECRET_JWT),
+        /** @see OpenID.ClientAuthMethod.CLIENT_SECRET_JWT */
+        val CLIENT_SECRET_JWT = ClientAuthMethod(OpenID.ClientAuthMethod.CLIENT_SECRET_JWT)
 
-    /** @see OpenID.ClientAuthMethod.PRIVATE_KEY_JWT */
-    @SerialName(OpenID.ClientAuthMethod.PRIVATE_KEY_JWT)
-    PRIVATE_KEY_JWT(OpenID.ClientAuthMethod.PRIVATE_KEY_JWT),
+        /** @see OpenID.ClientAuthMethod.PRIVATE_KEY_JWT */
+        val PRIVATE_KEY_JWT = ClientAuthMethod(OpenID.ClientAuthMethod.PRIVATE_KEY_JWT)
 
-    /** @see OpenID.ClientAuthMethod.NONE */
-    @SerialName(OpenID.ClientAuthMethod.NONE)
-    NONE(OpenID.ClientAuthMethod.NONE);
+        /** @see OpenID.ClientAuthMethod.NONE */
+        val NONE = ClientAuthMethod(OpenID.ClientAuthMethod.NONE)
+    }
 
     override fun toString() = value
 }
 
-fun String.toClientAuthMethodOrNull(): ClientAuthMethod? {
-    return when (this) {
-        OpenID.ClientAuthMethod.CLIENT_SECRET_BASIC,
-        -> ClientAuthMethod.CLIENT_SECRET_BASIC
-
-        OpenID.ClientAuthMethod.CLIENT_SECRET_POST,
-        -> ClientAuthMethod.CLIENT_SECRET_POST
-
-        OpenID.ClientAuthMethod.CLIENT_SECRET_JWT,
-        -> ClientAuthMethod.CLIENT_SECRET_JWT
-
-        OpenID.ClientAuthMethod.PRIVATE_KEY_JWT,
-        -> ClientAuthMethod.PRIVATE_KEY_JWT
-
-        OpenID.ClientAuthMethod.NONE,
-        -> ClientAuthMethod.NONE
-
-        else -> null
-    }
+fun String.asClientAuthMethod(): ClientAuthMethod {
+    return ClientAuthMethod(this)
 }

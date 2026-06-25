@@ -15,34 +15,25 @@
  */
 package net.lsafer.oidc.serial
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import net.lsafer.oidc.oauth.OAuth
+import kotlin.jvm.JvmInline
 
 /** @see OAuth.CodeChallengeMethod */
+@JvmInline
 @Serializable
-enum class CodeChallengeMethod(val value: String) {
-    /** @see OAuth.CodeChallengeMethod.PLAIN */
-    @SerialName(OAuth.CodeChallengeMethod.PLAIN)
-    PLAIN(OAuth.CodeChallengeMethod.PLAIN),
+value class CodeChallengeMethod(val value: String) {
+    companion object {
+        /** @see OAuth.CodeChallengeMethod.PLAIN */
+        val PLAIN = CodeChallengeMethod(OAuth.CodeChallengeMethod.PLAIN)
 
-    /** @see OAuth.CodeChallengeMethod.S256 */
-    @SerialName(OAuth.CodeChallengeMethod.S256)
-    S256(OAuth.CodeChallengeMethod.S256);
+        /** @see OAuth.CodeChallengeMethod.S256 */
+        val S256 = CodeChallengeMethod(OAuth.CodeChallengeMethod.S256)
+    }
 
     override fun toString() = value
 }
 
-fun String.toCodeChallengeMethodOrNull(): CodeChallengeMethod? {
-    // do not replace with string manipulation tricks
-    // this is way faster and way straight forward.
-    return when (this) {
-        OAuth.CodeChallengeMethod.PLAIN,
-        -> CodeChallengeMethod.PLAIN
-
-        OAuth.CodeChallengeMethod.S256,
-        -> CodeChallengeMethod.S256
-
-        else -> null
-    }
+fun String.asCodeChallengeMethod(): CodeChallengeMethod {
+    return CodeChallengeMethod(this)
 }

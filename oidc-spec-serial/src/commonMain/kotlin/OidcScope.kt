@@ -46,12 +46,12 @@ value class OidcScope(val value: String) {
     override fun toString() = value
 }
 
+fun String.asOidcScope(): OidcScope {
+    return OidcScope(this)
+}
+
 fun String.toOidcScopeSequence(): Sequence<OidcScope> {
     if (isBlank()) return emptySequence()
     return splitToSequence(" ")
         .map { it.asOidcScope() }
-}
-
-fun String.asOidcScope(): OidcScope {
-    return OidcScope(this)
 }

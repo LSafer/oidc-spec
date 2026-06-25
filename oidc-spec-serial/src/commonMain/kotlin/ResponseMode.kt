@@ -15,50 +15,37 @@
  */
 package net.lsafer.oidc.serial
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import net.lsafer.oidc.openid.OpenID
+import kotlin.jvm.JvmInline
 
 /** @see OpenID.ResponseMode */
+@JvmInline
 @Serializable
-enum class ResponseMode(val value: String) {
-    /** @see OpenID.ResponseMode.QUERY */
-    @SerialName(OpenID.ResponseMode.QUERY)
-    QUERY(OpenID.ResponseMode.QUERY),
+value class ResponseMode(val value: String) {
+    companion object {
+        /** @see OpenID.ResponseMode.QUERY */
+        val QUERY = ResponseMode(OpenID.ResponseMode.QUERY)
 
-    /** @see OpenID.ResponseMode.FRAGMENT */
-    @SerialName(OpenID.ResponseMode.FRAGMENT)
-    FRAGMENT(OpenID.ResponseMode.FRAGMENT),
+        /** @see OpenID.ResponseMode.FRAGMENT */
+        val FRAGMENT = ResponseMode(OpenID.ResponseMode.FRAGMENT)
 
-    /** @see OpenID.ResponseMode.FORM_POST */
-    @SerialName(OpenID.ResponseMode.FORM_POST)
-    FORM_POST(OpenID.ResponseMode.FORM_POST);
+        /** @see OpenID.ResponseMode.FORM_POST */
+        val FORM_POST = ResponseMode(OpenID.ResponseMode.FORM_POST)
+    }
 
     override fun toString() = value
 }
 
-fun String.toResponseModeOrNull(): ResponseMode? {
-    // do not replace with string manipulation tricks
-    // this is way faster and way straight forward.
-    return when (this) {
-        OpenID.ResponseMode.QUERY,
-        -> ResponseMode.QUERY
-
-        OpenID.ResponseMode.FRAGMENT,
-        -> ResponseMode.FRAGMENT
-
-        OpenID.ResponseMode.FORM_POST,
-        -> ResponseMode.FORM_POST
-
-        else -> null
-    }
+fun String.asResponseMode(): ResponseMode {
+    return ResponseMode(this)
 }
 
 fun Set<ResponseType>.defaultResponseModeOrNull(): ResponseMode? {
     return when (this) {
         ResponseTypeSet.CODE,
         ResponseTypeSet.NONE,
-        -> ResponseMode.QUERY
+            -> ResponseMode.QUERY
 
         ResponseTypeSet.TOKEN,
         ResponseTypeSet.ID_TOKEN,
@@ -66,9 +53,9 @@ fun Set<ResponseType>.defaultResponseModeOrNull(): ResponseMode? {
         ResponseTypeSet.CODE_TOKEN,
         ResponseTypeSet.CODE_ID_TOKEN,
         ResponseTypeSet.CODE_ID_TOKEN_TOKEN,
-        -> ResponseMode.FRAGMENT
+            -> ResponseMode.FRAGMENT
 
         else
-        -> null
+            -> null
     }
 }

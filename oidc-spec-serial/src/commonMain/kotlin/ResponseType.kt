@@ -15,34 +15,37 @@
  */
 package net.lsafer.oidc.serial
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import net.lsafer.oidc.oauth.OAuth
 import net.lsafer.oidc.openid.OpenID
+import kotlin.jvm.JvmInline
 
 /**
  * @see OAuth.ResponseType
  * @see OpenID.ResponseType
  */
+@JvmInline
 @Serializable
-enum class ResponseType(val value: String) {
-    /** @see OAuth.ResponseType.CODE */
-    @SerialName(OAuth.ResponseType.CODE)
-    CODE(OAuth.ResponseType.CODE),
+value class ResponseType(val value: String) {
+    companion object {
+        /** @see OAuth.ResponseType.CODE */
+        val CODE = ResponseType(OAuth.ResponseType.CODE)
 
-    /** @see OAuth.ResponseType.TOKEN */
-    @SerialName(OAuth.ResponseType.TOKEN)
-    TOKEN(OAuth.ResponseType.TOKEN),
+        /** @see OAuth.ResponseType.TOKEN */
+        val TOKEN = ResponseType(OAuth.ResponseType.TOKEN)
 
-    /** @see OpenID.ResponseType.NONE */
-    @SerialName(OpenID.ResponseType.NONE)
-    NONE(OpenID.ResponseType.NONE),
+        /** @see OpenID.ResponseType.NONE */
+        val NONE = ResponseType(OpenID.ResponseType.NONE)
 
-    /** @see OpenID.ResponseType.ID_TOKEN */
-    @SerialName(OpenID.ResponseType.ID_TOKEN)
-    ID_TOKEN(OpenID.ResponseType.ID_TOKEN);
+        /** @see OpenID.ResponseType.ID_TOKEN */
+        val ID_TOKEN = ResponseType(OpenID.ResponseType.ID_TOKEN)
+    }
 
     override fun toString() = value
+}
+
+fun String.asResponseType(): ResponseType {
+    return ResponseType(this)
 }
 
 /**
@@ -80,28 +83,28 @@ fun String.toResponseTypeSetOrNull(): Set<ResponseType>? {
     // this is way faster and way straight forward.
     return when (this) {
         OAuth.ResponseType.CODE,
-        -> ResponseTypeSet.CODE
+            -> ResponseTypeSet.CODE
 
         OAuth.ResponseType.TOKEN,
-        -> ResponseTypeSet.TOKEN
+            -> ResponseTypeSet.TOKEN
 
         OpenID.ResponseType.NONE,
-        -> ResponseTypeSet.NONE
+            -> ResponseTypeSet.NONE
 
         OpenID.ResponseType.ID_TOKEN,
-        -> ResponseTypeSet.ID_TOKEN
+            -> ResponseTypeSet.ID_TOKEN
 
         OpenID.ResponseType.ID_TOKEN_TOKEN,
         "token id_token",
-        -> ResponseTypeSet.ID_TOKEN_TOKEN
+            -> ResponseTypeSet.ID_TOKEN_TOKEN
 
         OpenID.ResponseType.CODE_TOKEN,
         "token code",
-        -> ResponseTypeSet.CODE_TOKEN
+            -> ResponseTypeSet.CODE_TOKEN
 
         OpenID.ResponseType.CODE_ID_TOKEN,
         "id_token code",
-        -> ResponseTypeSet.CODE_ID_TOKEN
+            -> ResponseTypeSet.CODE_ID_TOKEN
 
         OpenID.ResponseType.CODE_ID_TOKEN_TOKEN,
         "code token id_token",
@@ -109,7 +112,7 @@ fun String.toResponseTypeSetOrNull(): Set<ResponseType>? {
         "id_token token code",
         "token code id_token",
         "token id_token code",
-        -> ResponseTypeSet.CODE_ID_TOKEN_TOKEN
+            -> ResponseTypeSet.CODE_ID_TOKEN_TOKEN
 
         else -> null
     }

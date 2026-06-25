@@ -15,48 +15,31 @@
  */
 package net.lsafer.oidc.serial
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import net.lsafer.oidc.openid.OpenID
+import kotlin.jvm.JvmInline
 
 /** @see OpenID.Display */
+@JvmInline
 @Serializable
-enum class OidcDisplay(val value: String) {
-    /** @see OpenID.Display.PAGE */
-    @SerialName(OpenID.Display.PAGE)
-    PAGE(OpenID.Display.PAGE),
+value class OidcDisplay(val value: String) {
+    companion object {
+        /** @see OpenID.Display.PAGE */
+        val PAGE = OidcDisplay(OpenID.Display.PAGE)
 
-    /** @see OpenID.Display.POPUP */
-    @SerialName(OpenID.Display.POPUP)
-    POPUP(OpenID.Display.POPUP),
+        /** @see OpenID.Display.POPUP */
+        val POPUP = OidcDisplay(OpenID.Display.POPUP)
 
-    /** @see OpenID.Display.TOUCH */
-    @SerialName(OpenID.Display.TOUCH)
-    TOUCH(OpenID.Display.TOUCH),
+        /** @see OpenID.Display.TOUCH */
+        val TOUCH = OidcDisplay(OpenID.Display.TOUCH)
 
-    /** @see OpenID.Display.WAP */
-    @SerialName(OpenID.Display.WAP)
-    WAP(OpenID.Display.WAP);
+        /** @see OpenID.Display.WAP */
+        val WAP = OidcDisplay(OpenID.Display.WAP)
+    }
 
     override fun toString() = value
 }
 
-fun String.toOidcDisplayOrNull(): OidcDisplay? {
-    // do not replace with string manipulation tricks
-    // this is way faster and way straight forward.
-    return when (this) {
-        OpenID.Display.PAGE,
-        -> OidcDisplay.PAGE
-
-        OpenID.Display.POPUP,
-        -> OidcDisplay.POPUP
-
-        OpenID.Display.TOUCH,
-        -> OidcDisplay.TOUCH
-
-        OpenID.Display.WAP,
-        -> OidcDisplay.WAP
-
-        else -> null
-    }
+fun String.asOidcDisplay(): OidcDisplay {
+    return OidcDisplay(this)
 }

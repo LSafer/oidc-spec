@@ -15,34 +15,25 @@
  */
 package net.lsafer.oidc.serial
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import net.lsafer.oidc.openid.OpenID
+import kotlin.jvm.JvmInline
 
 /** @see OpenID.SubjectType */
+@JvmInline
 @Serializable
-enum class SubjectType(val value: String) {
-    /** @see OpenID.SubjectType.PUBLIC */
-    @SerialName(OpenID.SubjectType.PUBLIC)
-    PUBLIC(OpenID.SubjectType.PUBLIC),
+value class SubjectType(val value: String) {
+    companion object {
+        /** @see OpenID.SubjectType.PUBLIC */
+        val PUBLIC = SubjectType(OpenID.SubjectType.PUBLIC)
 
-    /** @see OpenID.SubjectType.PAIRWISE */
-    @SerialName(OpenID.SubjectType.PAIRWISE)
-    PAIRWISE(OpenID.SubjectType.PAIRWISE);
+        /** @see OpenID.SubjectType.PAIRWISE */
+        val PAIRWISE = SubjectType(OpenID.SubjectType.PAIRWISE)
+    }
 
     override fun toString() = value
 }
 
-fun String.toSubjectTypeOrNull(): SubjectType? {
-    // do not replace with string manipulation tricks
-    // this is way faster and way straight forward.
-    return when (this) {
-        OpenID.SubjectType.PUBLIC,
-        -> SubjectType.PUBLIC
-
-        OpenID.SubjectType.PAIRWISE,
-        -> SubjectType.PAIRWISE
-
-        else -> null
-    }
+fun String.asSubjectType(): SubjectType {
+    return SubjectType(this)
 }

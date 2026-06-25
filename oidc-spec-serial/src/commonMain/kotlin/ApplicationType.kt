@@ -15,34 +15,25 @@
  */
 package net.lsafer.oidc.serial
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import net.lsafer.oidc.openid.OpenID
+import kotlin.jvm.JvmInline
 
 /** @see OpenID.ApplicationType */
+@JvmInline
 @Serializable
-enum class ApplicationType(val value: String) {
-    /** @see OpenID.ApplicationType.WEB */
-    @SerialName(OpenID.ApplicationType.WEB)
-    WEB(OpenID.ApplicationType.WEB),
+value class ApplicationType(val value: String) {
+    companion object {
+        /** @see OpenID.ApplicationType.WEB */
+        val WEB = ApplicationType(OpenID.ApplicationType.WEB)
 
-    /** @see OpenID.ApplicationType.NATIVE */
-    @SerialName(OpenID.ApplicationType.NATIVE)
-    NATIVE(OpenID.ApplicationType.NATIVE);
+        /** @see OpenID.ApplicationType.NATIVE */
+        val NATIVE = ApplicationType(OpenID.ApplicationType.NATIVE)
+    }
 
     override fun toString() = value
 }
 
-fun String.toApplicationTypeOrNull(): ApplicationType? {
-    // do not replace with string manipulation tricks
-    // this is way faster and way straight forward.
-    return when (this) {
-        OpenID.ApplicationType.WEB,
-        -> ApplicationType.WEB
-
-        OpenID.ApplicationType.NATIVE,
-        -> ApplicationType.NATIVE
-
-        else -> null
-    }
+fun String.asApplicationType(): ApplicationType {
+    return ApplicationType(this)
 }

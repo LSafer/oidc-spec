@@ -15,61 +15,39 @@
  */
 package net.lsafer.oidc.serial
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import net.lsafer.oidc.openid.OpenID
+import kotlin.jvm.JvmInline
 
 /** @see OpenID.Prompt */
+@JvmInline
 @Serializable
-enum class OidcPrompt(val value: String) {
-    /** @see OpenID.Prompt.NONE */
-    @SerialName(OpenID.Prompt.NONE)
-    NONE(OpenID.Prompt.NONE),
+value class OidcPrompt(val value: String) {
+    companion object {
+        /** @see OpenID.Prompt.NONE */
+        val NONE = OidcPrompt(OpenID.Prompt.NONE)
 
-    /** @see OpenID.Prompt.LOGIN */
-    @SerialName(OpenID.Prompt.LOGIN)
-    LOGIN(OpenID.Prompt.LOGIN),
+        /** @see OpenID.Prompt.LOGIN */
+        val LOGIN = OidcPrompt(OpenID.Prompt.LOGIN)
 
-    /** @see OpenID.Prompt.CONSENT */
-    @SerialName(OpenID.Prompt.CONSENT)
-    CONSENT(OpenID.Prompt.CONSENT),
+        /** @see OpenID.Prompt.CONSENT */
+        val CONSENT = OidcPrompt(OpenID.Prompt.CONSENT)
 
-    /** @see OpenID.Prompt.SELECT_ACCOUNT */
-    @SerialName(OpenID.Prompt.SELECT_ACCOUNT)
-    SELECT_ACCOUNT(OpenID.Prompt.SELECT_ACCOUNT),
+        /** @see OpenID.Prompt.SELECT_ACCOUNT */
+        val SELECT_ACCOUNT = OidcPrompt(OpenID.Prompt.SELECT_ACCOUNT)
 
-    /** @see OpenID.Prompt.CREATE */
-    @SerialName(OpenID.Prompt.CREATE)
-    CREATE(OpenID.Prompt.CREATE);
+        /** @see OpenID.Prompt.CREATE */
+        val CREATE = OidcPrompt(OpenID.Prompt.CREATE)
+    }
 
     override fun toString() = value
 }
 
-fun String.toOidcPromptSequence(): Sequence<OidcPrompt> {
-    if (isEmpty()) return emptySequence()
-    return splitToSequence(" ")
-        .mapNotNull { it.toOidcPromptOrNull() }
+fun String.asOidcPrompt(): OidcPrompt {
+    return OidcPrompt(this)
 }
 
-fun String.toOidcPromptOrNull(): OidcPrompt? {
-    // do not replace with string manipulation tricks
-    // this is way faster and way straight forward.
-    return when (this) {
-        OpenID.Prompt.NONE,
-        -> OidcPrompt.NONE
-
-        OpenID.Prompt.LOGIN,
-        -> OidcPrompt.LOGIN
-
-        OpenID.Prompt.CONSENT,
-        -> OidcPrompt.CONSENT
-
-        OpenID.Prompt.SELECT_ACCOUNT,
-        -> OidcPrompt.SELECT_ACCOUNT
-
-        OpenID.Prompt.CREATE,
-        -> OidcPrompt.CREATE
-
-        else -> null
-    }
+fun String.toOidcPromptSequence(): Sequence<OidcPrompt> {
+    if (isEmpty()) return emptySequence()
+    return splitToSequence(" ").map { it.asOidcPrompt() }
 }
