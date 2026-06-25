@@ -15,9 +15,6 @@
  */
 package net.lsafer.oidc.jose
 
-@Deprecated("Has Being Replaced", ReplaceWith("JwtHeader.Type", "net.lsafer.oidc.jose.JwtHeader"))
-typealias JwtType = JwtHeader.Typ
-
 /**
  * Jwt Header Names Registry
  */

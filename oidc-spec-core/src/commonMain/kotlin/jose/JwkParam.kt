@@ -15,15 +15,6 @@
  */
 package net.lsafer.oidc.jose
 
-@Deprecated("Has Being Replaced", ReplaceWith("JwkParam.KeyOps", "net.lsafer.oidc.jose.JwkParam"))
-typealias JwkOperation = JwkParam.KeyOps
-
-@Deprecated("Has Being Replaced", ReplaceWith("JwkParam.Kty", "net.lsafer.oidc.jose.JwkParam"))
-typealias JwkType = JwkParam.Kty
-
-@Deprecated("Has Being Replaced", ReplaceWith("JwkParam.Use", "net.lsafer.oidc.jose.JwkParam"))
-typealias JwkUse = JwkParam.Use
-
 /**
  * Jwk Parameter Names Registry
  */
